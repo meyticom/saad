@@ -1,0 +1,29 @@
+{% extends 'base_panel.html' %}
+{% block add %}
+         <div class="row fwc">
+
+            <div class="content2 right w50p">
+
+                <h3>مشخصات مربی</h3>
+                <form content="form-inline" action="/add_teacher/" method="post">
+                    {% csrf_token %}
+                    {{ form.first_name.errors }}
+                    <input type="text" name="first_name" placeholder="نام">
+                    {{ form.last_name.errors }}
+                    <input type="text" name="last_name" placeholder="نام خانوادگی">
+                    {{ form.national_code.errors }}
+                    <input type="text" name="national_code" placeholder="کد ملی">
+                    {{ form.mobile.errors }}
+                    <input type="text" name="mobile" placeholder="موبایل">
+                    {{ form.address.errors }}
+                    <input type="text" name="address" placeholder="محل سکونت">
+                    {{ form.mail.errors }}
+                    <input type="email" name="mail" class="form-control form-control-lg" id="lgFormGroupInput" placeholder=" ایمیل : you@example.com">
+
+
+                    <input name="" type="reset" class="btn btn-red" value="پاک کردن فرم">
+                    <input name="" type="submit" class="btn btn-danger" value="ثبت و ذخیره">
+                </form>
+            </div>
+         </div>
+{% endblock %}

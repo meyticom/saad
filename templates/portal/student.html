@@ -1,0 +1,52 @@
+{% extends 'base_panel.html' %}
+{% block title %}
+    <title>مدیریت دانش آموزان</title>
+{% endblock %}
+
+
+{% block add %}
+
+            <div class="content">
+                		<h3>اطلاعات کامل اعضا</h3>
+
+		<table class="table">
+
+				<tr>
+					<td>نام		</td>
+					<td>نام خانوادگی	</td>
+					<td>نام پدر	</td>
+					<td>کد قرآن آموزی</td>
+					<td>کد ملی	</td>
+                    <td>تاریخ تولد</td>
+                    <td>اخرین مدرک تحصیلی</td>
+					<td>نام مربی	</td>
+					<td>تاریخ تولد‍‍	</td>
+					<td>شماره تلفن	</td>
+                    <td>همراه پدر</td>
+					<td>نشانی منزل	</td>
+					<td>عکس</td>
+				</tr>
+
+				{% for UserProfile in all %}
+				<tr>
+					<td>{{ UserProfile.first_name }}	</td>
+					<td>{{ UserProfile.last_name }} 	</td>
+					<td>{{ UserProfile.father_name }}	</td>
+					<td>{{ UserProfile.code }}	</td>
+					<td>{{ UserProfile.national_code }}	</td>
+                    <td>{{ UserProfile.born }}</td>
+                    <td>{{ UserProfile.end_ejuction }}</td>
+					<td>{{ UserProfile.teacher }}	</td>
+					<td>{{ UserProfile.born }}	</td>
+					<td>{{ UserProfile.phone }}	</td>
+                    <td>{{ UserProfile.father_phone }}</td>
+					<td>{{ UserProfile.address}}	</td>
+					<td><img src="{{ UserProfile.imgfile.url }} " width="50px"  height="50px">	</td>
+				</tr>
+                {% endfor %}
+
+			</table>
+        </div>
+
+
+{% endblock %}

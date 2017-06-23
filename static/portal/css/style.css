@@ -1,0 +1,321 @@
+@import "reset.css";
+
+/* General Styles */
+@font-face {
+    font-family: BYekan;
+    src: url(../fonts/BYekan.eot) format('eot'),
+    url(../fonts/BYekan.woff) format('woff'),
+    url(../fonts/BYekan.ttf) format('truetype')
+}
+
+html, body, #main {
+    font-family: BYekan;
+    font-size: 14px;
+    direction: rtl;
+    text-align: right;
+    height: 100%;
+    min-height: 100%;
+}
+
+a {
+    color: #b86edc !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #77bcba !important;
+}
+
+h1, h2, h3, h4 {
+    font-family: BYekan;
+    color: #34495e;
+}
+
+.clear {
+    clear: both;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.w50p {
+    width: 50%;
+}
+
+.m30 {
+    margin: 30px !important;
+}
+.m10 {
+    margin: 10px !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.fwc{
+    width: 960px;
+    margin: 0 auto;
+}
+
+/* buttons */
+.btn{
+    border: 1px solid #1c698f;
+    border-bottom-width: 3px !important;
+    border-right-width: 2px !important;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #3898b5;
+    color: #ffffff;
+    font-family: BYekan;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 12px;
+    margin: 5px;
+}
+.btn:hover {
+    color: #ffffff;
+    opacity: .8;
+}
+.btn:active{
+    position: relative;
+    top: 2px;
+}
+.btn-green{
+    background-color: #77b55a ;
+    border: 1px solid #4b8f29 ;
+}
+
+.btn-orange {
+    background-color: #cfa503;
+    border: 1px solid #8f5412;
+}
+
+.btn-red {
+    background-color: #cf4b10;
+    border: 1px solid #8f5412;
+}
+
+.btn-silver {
+    background-color: #d4d8d2;
+    border: 1px solid #adadab;
+    color: #777 !important;
+}
+
+
+/* Navigation Menu */
+header nav{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 55px;
+    border-bottom:  1px solid #e5e5e5;
+    z-index: 9999999;
+
+/*  gradiant generator (replace by image) : http://www.colorzilla.com/gradient-editor/
+    background: #f2f5f6;
+    background: -moz-linear-gradient(top,  #f2f5f6 0%, #e3eaed 37%, #c8d7dc 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f5f6), color-stop(37%,#e3eaed), color-stop(100%,#c8d7dc));
+    background: -webkit-linear-gradient(top,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    background: -o-linear-gradient(top,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    background: -ms-linear-gradient(top,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    background: linear-gradient(to bottom,  #f2f5f6 0%,#e3eaed 37%,#c8d7dc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f5f6', endColorstr='#c8d7dc',GradientType=0 );
+    replaced by an image :
+*/
+    background: #edc6f6 url("../images/bg3.png") repeat-x;
+
+}
+
+
+header nav #topMenu ul{
+    list-style: none;
+}
+header nav #topMenu ul li{
+    display: inline-block;
+}
+header nav #topMenu ul li a{
+    font-size: 20px;
+    padding: 0 15px;
+}
+
+header nav #topMenu .active {
+    color: #bc1ebb;
+    background-color: #8bd5d7;
+    border-radius: 60px;
+    padding-bottom: 2px;
+}
+/* Rows Common Styles */
+.rowContainer{
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.row{
+    float: right;
+    padding: 80px 0 30px 0 !important;
+}
+
+.white{
+    background-color: #fff;
+}
+
+.silver {
+    background-color: #f2f2f2;
+}
+#row2 h3 {
+    font-family: "B Yekan";
+    color: #2b542c;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#row2 form{
+    text-align: center;
+}
+#row2 input:not(.btn),#row2 textarea {
+    font-size: 18px;
+    text-align: right;
+    color: #354149;
+    font-weight: bold;
+    font-family: BYekan;
+    width: 70%;
+    border: 3px solid #cccccc;
+    border-radius: 14px;
+    padding: 5px 10px;
+    display: block;
+    margin: 5px auto;
+}
+
+#row2 input:focus,#row2 textarea:focus {
+    border-color: #82bccc;
+    outline: none;
+}
+
+
+
+
+
+#row3 h3 {
+    font-family: "B Yekan";
+    color: #2b542c;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#row3 form{
+    text-align: center;
+
+}
+#row3 input:not(.btn),#row3 textarea {
+    font-size: 18px;
+    text-align: right;
+    color: #354149;
+    font-weight: bold;
+    font-family: BYekan;
+    width: 70%;
+    border: 3px solid #cccccc;
+    border-radius: 14px;
+    padding: 5px 10px;
+    display: block;
+    margin: 5px auto;
+
+}
+
+#row3 input:focus,#row3 textarea:focus {
+    border-color: #82bccc;
+    outline: none;
+}
+.saad{
+    margin-bottom: 50px!important;
+}
+.tahsil{
+    background-color: white;
+    font-size: 18px;
+        text-align: right;
+        color: #354149;
+        font-weight: bold;
+        font-family: BYekan;
+        width: 70%;
+        border: 3px solid #cccccc;
+        border-radius: 14px;
+        padding: 5px 10px;
+        display: block;
+        margin: 5px auto;
+}
+.tahsil:focus{
+    border-color: #82bccc;
+       outline: none;
+}
+#row1{
+    border-bottom: none;
+}
+#row1 h3 {
+    font-family: "B Yekan";
+    color: #2b542c;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#row1 form{
+    text-align: center;
+}
+#row1 input:not(.btn),#row3 textarea {
+    font-size: 18px;
+    text-align: right;
+    color: #354149;
+    font-weight: bold;
+    font-family: BYekan;
+    width: 70%;
+    border: 3px solid #cccccc;
+    border-radius: 14px;
+    padding: 5px 10px;
+    display: block;
+    margin: 5px auto;
+
+}
+
+#row1 input:focus,#row3 textarea:focus {
+    border-color: #82bccc;
+    outline: none;
+}
+
+.box1{
+    width: 33%;
+    float: right;
+    padding: 12px;
+    box-sizing: border-box;
+    line-height: 20px;
+
+}
+
+.box1 h3 {
+    margin: 5px 0 7px 0;
+    font-size: 20px;
+}
+.box1 img{
+    border:3px solid #83dbe1;
+    border-radius: 100px;
+    position: absolute;
+    left: 460px;
+    top: 140px;;
+}

@@ -1,0 +1,154 @@
+{% extends 'base_panel.html' %}
+{% load staticfiles %}
+{% block add %}
+    <!--form-->
+
+    <form action="/add_student/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <section class="rowContainer silver" id="row1">
+        <div class="row fwc">
+
+            <div class="content2 right w50p">
+                <input type="text" name="code" value="{{ final }}" />
+                {{ form.code.errors }}
+            </div>
+
+
+            <div class="content2 left w50p ">
+                <input type="file" name="imgfile" id="ax" onclick="" >
+                {{ form.imgfile.errors  }}
+
+            </div>
+            <div class="clear"></div>
+
+
+        </div>
+        <div class="box1">
+            <img src="{% static 'portal/images/picture.png' %}" width="125px"  height="125px">
+
+        </div>
+    </section>
+
+    <section class="rowContainer silver" id="row2">
+        <div class="row fwc">
+
+            <div class="content2 right w50p">
+
+                <h3>مشخصات متقاضی</h3>
+                    <input type="text" name="first_name" placeholder="نام ">
+                    {{ form.first_name.errors }}
+                    <input type="text" name="last_name" placeholder="نام خانوادگی">
+                    {{ form.last_name.errors }}
+                    <input type="text" name="father_name" placeholder="نام پدر">
+                    {{ form.father_name.errors }}
+                    <input type="text" name="national_code" placeholder="کد ملی">
+                    {{ form.national_code.errors }}
+                    <input type="email" name="mail" class="form-control form-control-lg" id="lgFormGroupInput" placeholder=" ایمیل : you@example.com">
+                    {{ form.mail.errors }}
+                    <div class="tahsil">
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">آخرین مدرک تحصیلی</label>
+                        <select name="end_ejuction" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+                            <option selected>دکتری</option>
+                            <option value="1">فوق لیسانس</option>
+                            <option value="2"> لیسانس</option>
+                            <option value="3">فوق دیپلم</option>
+                            <option value="4">دیپلم</option>
+                            <option value="5">یازدهم</option>
+                            <option value="6">دهم</option>
+                            <option value="7">نهم</option>
+                            <option value="8">هشتم</option>
+                            <option value="9">هفتم</option>
+                            <option value="10">ششم</option>
+                            <option value="11">پنجم</option>
+                            <option value="12">چهارم</option>
+                            <option value="13">سوم</option>
+                            <option value="14">دوم</option>
+                            <option value="15">اول</option>
+                            <option value="16">پیش دبستانی</option>
+                            <option value="17">عدم آغاز تحصیل</option>
+                        </select>
+                    </div>
+                    <input type="text" name="school" placeholder="مدرسه">
+                    {{ form.school.errors }}
+                    <input type="text" name="school_time" placeholder="شیفت مدرسه">
+                    {{ form.school_time.errors }}
+                    <!--<input type="text" name="address" placeholder="آدرس">-->
+                    <textarea name="address" id="" cols="30" rows="10" placeholder="آدرس ... "></textarea>
+                    {{ form.address.errors }}
+                    <input type="datetime" name="born" placeholder="تاریخ تولد">
+                    {{ form.born.errors }}
+                    <input type="tel" name="mobile" placeholder="همراه">
+                    {{ form.mobile.errors }}
+                    <input type="tel" name="phone" placeholder="شماره منزل">
+                    {{ form.phone.errors }}
+                    <input name="" type="reset" class="btn btn-red" value="پاک کردن فرم">
+            </div>
+
+
+            <div class="content2 left w50p ">
+
+                <h3>مشخصات اولیا</h3>
+                    <div class="tahsil">
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">آخرین مدرک تحصیلی پدر</label>
+                        <select name="father_ejuction" class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                            <option selected>دیپلم</option>
+                            <option value="1">لیسانس</option>
+                            <option value="2">فوق لیسانس</option>
+                            <option value="3">دانش آموز</option>
+                            <option value="4">سایر</option>
+                        </select>
+                    </div>
+                    <input type="text" name="father_work" placeholder="شغل پدر">
+                    {{ form.father_work.errors }}
+                    <input type="tel" name="father_phone" placeholder="همراه پدر">
+                    {{ form.father_phone.errors }}
+
+                    <!--<input type="text" name="" placeholder="نام مادر">
+                    <input type="text" name="" placeholder="نام خانوادگی مادر">-->
+                    <div class="tahsil">
+                        <label class="mr-sm-2" for="inlineFormCustomSelect">آخرین مدرک تحصیلی مادر</label>
+                        <select name="mother_ejuction" class="custom-select mb-2 mr-sm-2 mb-sm-0">
+                            <option selected>زیر دیپلم</option>
+                            <option value="1">دیپلم</option>
+                            <option value="2">لیسانس</option>
+                            <option value="3">فوق لیسانس</option>
+                            <option value="4">سایر</option>
+                        </select>
+                    </div>
+                    <input type="text" name="mother_work" placeholder="شغل مادر">
+                    {{ form.mother_work.errors }}
+                    <input type="tel" name="mother_phone" placeholder="همراه مادر">
+                    {{ form.mother_phone.errors }}
+                    <input name="" type="reset" class="btn btn-green" value="پاک کردن فرم">
+            </div>
+            <div class="clear"></div>
+        </div>
+    </section>
+
+    <section class="rowContainer silver" id="row3">
+        <div class="row fwc">
+
+
+            <div class="content2 left w50p ">
+
+                <h3>وضعیت سلامت</h3>
+                    <input type="text" name="physical_illness" placeholder="بیماری جسمی">
+                    {{ form.physical_illness.errors }}
+                    <input type="text" name="physical_illness_medicine" placeholder="داروی مورد مصرف">
+                    {{ form.physical_illness_medicine.errors }}
+                    <input type="text" name="mental_illness" placeholder="بیماری روحی و روانی">
+                    {{ form.mental_illness.errors }}
+                    <input type="text" name="mental_illness_medicine" placeholder="داروی مورد مصرف">
+                    {{ form.mental_illness_medicine.errors }}
+                    <textarea name="detail" id="" cols="30" rows="10" placeholder="توضیحات  ... "></textarea>
+                    {{ form.detail.errors }}
+                    <input name="" type="reset" class="btn btn-blue" value="پاک کردن فرم">
+                    <input name="" type="submit" class="btn btn-danger" value="ثبت و ذخیره">
+            </div>
+            <div class="clear">
+
+            </div>
+        </div>
+    </section>
+    </form>
+{% endblock %}

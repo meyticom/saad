@@ -1,0 +1,14 @@
+{% comment %}{% extends 'base_panel.html' %}
+
+{% block add %}{% endcomment %}
+    <div class="content">
+        {% if student.published_date %}
+            <div class="date">
+                {{ student.published_date }}
+            </div>
+        {% endif %}
+        {% comment %}<a class="btn btn-default" href="{% url 'post_edit' pk=student.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>{% endcomment %}
+        <h1>{{ student.last_name }}</h1>
+    </div>
+{% comment %}
+{% endblock %}{% endcomment %}

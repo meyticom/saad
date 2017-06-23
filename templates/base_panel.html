@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'portal/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'portal/css/bootstrap.min.css'%}">
+‍    {% block title %}
+    <title>پنل</title>
+    {% endblock %}
+</head>
+<body>
+<div id="main">
+    <header>
+        <nav>
+            <div class="fwc" id="topMenu">
+                <ul>
+                    <li><a href="#" class="active">خانه</a></li>
+                    <li><a href="#">درباره ما</a></li>
+                    <li><a href="/add_student/">ثبت نام</a></li>
+                    <li><a href="#">اساتید</a></li>
+                    <li><a href="#">دانش آموزان</a></li>
+                    <li><a href="#">اولیا</a></li>
+                    <li><a href="#">خروج</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <!--form-->
+    <section class="rowContainer silver" id="row1">
+         {% block add %}
+         <div class="row fwc">
+
+            <div class="content2 right w50p">
+
+                <h3>مشخصات مربی</h3>
+                <form content="form-inline" action="/add_teacher/" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="first_name" placeholder="نام">
+                    <input type="text" name="last_name" placeholder="نام خانوادگی">
+                    <input type="text" name="national_code" placeholder="کد ملی">
+                    <input type="text" name="mobile" placeholder="موبایل">
+                    <input type="text" name="address" placeholder="محل سکونت">
+                    <input type="email" name="mail" class="form-control form-control-lg" id="lgFormGroupInput" placeholder=" ایمیل : you@example.com">
+
+
+                    <input name="" type="reset" class="btn btn-red" value="پاک کردن فرم">
+                    <input name="" type="submit" class="btn btn-danger" value="ثبت و ذخیره">
+                </form>
+            </div>
+         {% endblock %}
+    </section>
+</div>
+</body>
+</html>
