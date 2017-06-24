@@ -1,57 +1,204 @@
 {% load staticfiles %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'portal/css/style.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'portal/js/jquery.min.js'%}"></script>
+    <script src="{% static 'portal/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'portal/js/handler.js'%}"></script>
     <link rel="stylesheet" href="{% static 'portal/css/bootstrap.min.css'%}">
-‍    {% block title %}
-    <title>پنل</title>
+    <link rel="stylesheet" href="{% static 'portal/css/bootstrap-rtl.css'%}">
+    <link rel="stylesheet" href="{% static 'portal/css/style.css'%}">
+    ‍{% block title %}
+            <title>پنل</title>
     {% endblock %}
 </head>
-<body>
-<div id="main">
-    <header>
-        <nav>
-            <div class="fwc" id="topMenu">
-                <ul>
-                    <li><a href="#" class="active">خانه</a></li>
-                    <li><a href="#">درباره ما</a></li>
-                    <li><a href="/add_student/">ثبت نام</a></li>
-                    <li><a href="#">اساتید</a></li>
-                    <li><a href="#">دانش آموزان</a></li>
-                    <li><a href="#">اولیا</a></li>
-                    <li><a href="#">خروج</a></li>
-                </ul>
+
+
+
+<body >
+<div class="container">
+    {% block add %}
+    <div class="row">
+        <div class="col-lg-12 col-md-12 ">
+            <nav class="navbar navbar-inverse ">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav1"
+                                aria-expanded="false">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+
+                        </button>
+
+                    </div>
+                    <form class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="کلمه مورد نظر . . .">
+                        </div>
+                        <button type="submit" class="btn btn-info">جستجو</button>
+                    </form>
+                    <div class="collapse navbar-collapse " id="nav1">
+                        <ul class="nav navbar-nav ">
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="خانه" href="#"><span  class="glyphicon glyphicon-home"></span></a></li>
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="درباره ما" href="#"><span
+                                    class="glyphicon glyphicon-question-sign"></span></a></li>
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="جدید" href="#"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                            </li>
+
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="ویرایش" href="#"><span class="glyphicon glyphicon-edit"></span></a></li>
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="ذخیره" href="#"><span class="glyphicon glyphicon-floppy-disk"></span></a></li>
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="خروج " href="#"><span class="glyphicon glyphicon-off"></span></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4 " >
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="شماره صاد " disabled>
             </div>
-        </nav>
-    </header>
+        </div>
+        <div class="col-lg-5 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
 
-
-    <!--form-->
-    <section class="rowContainer silver" id="row1">
-         {% block add %}
-         <div class="row fwc">
-
-            <div class="content2 right w50p">
-
-                <h3>مشخصات مربی</h3>
-                <form content="form-inline" action="/add_teacher/" method="post">
-                    {% csrf_token %}
-                    <input type="text" name="first_name" placeholder="نام">
-                    <input type="text" name="last_name" placeholder="نام خانوادگی">
-                    <input type="text" name="national_code" placeholder="کد ملی">
-                    <input type="text" name="mobile" placeholder="موبایل">
-                    <input type="text" name="address" placeholder="محل سکونت">
-                    <input type="email" name="mail" class="form-control form-control-lg" id="lgFormGroupInput" placeholder=" ایمیل : you@example.com">
-
-
-                    <input name="" type="reset" class="btn btn-red" value="پاک کردن فرم">
-                    <input name="" type="submit" class="btn btn-danger" value="ثبت و ذخیره">
-                </form>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4">
+            <div class="form-group">
+                <input class="form-control" type="file">
             </div>
-         {% endblock %}
-    </section>
+        </div>
+    </div>
+
+
+    <div class="row ">
+        <form action="" id="contactForm">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " data-toggle="validator" role="form">
+
+                        <span>مشخصات فردی</span>
+
+                        <div class="form-group" >
+
+                            <input name=""  class="form-control required" type="text" placeholder="نام "  >
+
+                        </div>
+
+                        <div class="form-group  ">
+                            <input name="" class="form-control required" type="text" placeholder="نام خانوادگی ">
+                        </div>
+
+                        <div class="form-group">
+                            <input name="" class="form-control" type="text" placeholder="نام پدر ">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <input name="" class="form-control required" type="text" placeholder="شماره ملی  ">
+                        </div>
+                        <div class="form-group">
+                            <input name="" class="form-control" type="text" placeholder="تاریخ تولد  ">
+                        </div>
+                        <div class="form-group">
+                            <input name="" class="form-control required" type="text" placeholder=". . . . . . . .9891+  ">
+                        </div>
+
+                        <div class="form-group">
+
+                            <textarea class="form-control" placeholder="توضیحات"></textarea>
+                        </div>
+                        <span class="btn bg-danger"> پاک کردن فرم</span>
+
+
+                    </div>
+        </form>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " >
+
+            <span>مشخصات اولیا</span>
+
+            <div class="form-group">
+                <input name="" class="form-control required" type="text" placeholder="نام ">
+            </div>
+            <div class="form-group ">
+                <input name="" class="form-control required" type="text" placeholder="نام خانوادگی ">
+            </div>
+            <div class="form-group">
+                <input name="" class="form-control required" type="text" lang="en " placeholder=". . . . . . . .9891+">
+            </div>
+            <div class="form-group">
+                <input name="" class="form-control" type="text" placeholder="آخرین مدرک تحصیلی  ">
+            </div>
+
+            <div class="form-group">
+                <input name="" class="form-control " type="text" placeholder="آدرس محل کار   ">
+            </div>
+
+            <span class="btn bg-danger"> پاک کردن فرم</span>
+
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+            <span>وضعیت سلامتی </span>
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="سابقه بیماری ">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="سابقه جراحی ">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="وضعیت بیمه  ">
+            </div>
+            <div class="form-group">
+
+                <textarea class="form-control" placeholder="شرح حال"></textarea>
+            </div>
+            <span class="btn bg-danger"> پاک کردن فرم</span>
+            <span id="check-form" class="btn bg-success"> ذخیره</span>
+
+        </div>
+        <div id="success" class="success"></div>
+    </div>
+    {% endblock %}
 </div>
+
+
+<script>
+        var video = document.querySelector("#videoElement");
+
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+if (navigator.getUserMedia) {
+    navigator.getUserMedia({video: true}, handleVideo, videoError);
+}
+
+function handleVideo(stream) {
+    video.src = window.URL.createObjectURL(stream);
+}
+
+
+</script>
+
+
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+
 </body>
 </html>
