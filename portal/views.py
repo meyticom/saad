@@ -19,7 +19,7 @@ def add_teacher(request):
         else:
             print form.errors
     else:
-        form = teacherform()
+        form = teacherform(format())
     return render(request,'portal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
 
 

@@ -18,10 +18,8 @@
 </head>
 
 
-
 <body >
 <div class="container">
-    {% block add %}
     <div class="row">
         <div class="col-lg-12 col-md-12 ">
             <nav class="navbar navbar-inverse ">
@@ -44,10 +42,10 @@
                     </form>
                     <div class="collapse navbar-collapse " id="nav1">
                         <ul class="nav navbar-nav ">
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="خانه" href="#"><span  class="glyphicon glyphicon-home"></span></a></li>
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="خانه" href="/"><span  class="glyphicon glyphicon-home"></span></a></li>
                             <li><a data-toggle="tooltip" data-placement="bottom"  title="درباره ما" href="#"><span
                                     class="glyphicon glyphicon-question-sign"></span></a></li>
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="جدید" href="#"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                            <li><a data-toggle="tooltip" data-placement="bottom"  title="جدید" href="/add_student"><span class="glyphicon glyphicon-plus-sign"></span></a>
                             </li>
 
                             <li><a data-toggle="tooltip" data-placement="bottom"  title="ویرایش" href="#"><span class="glyphicon glyphicon-edit"></span></a></li>
@@ -60,111 +58,7 @@
             </nav>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4 " >
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="شماره صاد " disabled>
-            </div>
-        </div>
-        <div class="col-lg-5 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
-
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4">
-            <div class="form-group">
-                <input class="form-control" type="file">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row ">
-        <form action="" id="contactForm">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " data-toggle="validator" role="form">
-
-                        <span>مشخصات فردی</span>
-
-                        <div class="form-group" >
-
-                            <input name=""  class="form-control required" type="text" placeholder="نام "  >
-
-                        </div>
-
-                        <div class="form-group  ">
-                            <input name="" class="form-control required" type="text" placeholder="نام خانوادگی ">
-                        </div>
-
-                        <div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="نام پدر ">
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <input name="" class="form-control required" type="text" placeholder="شماره ملی  ">
-                        </div>
-                        <div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="تاریخ تولد  ">
-                        </div>
-                        <div class="form-group">
-                            <input name="" class="form-control required" type="text" placeholder=". . . . . . . .9891+  ">
-                        </div>
-
-                        <div class="form-group">
-
-                            <textarea class="form-control" placeholder="توضیحات"></textarea>
-                        </div>
-                        <span class="btn bg-danger"> پاک کردن فرم</span>
-
-
-                    </div>
-        </form>
-
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " >
-
-            <span>مشخصات اولیا</span>
-
-            <div class="form-group">
-                <input name="" class="form-control required" type="text" placeholder="نام ">
-            </div>
-            <div class="form-group ">
-                <input name="" class="form-control required" type="text" placeholder="نام خانوادگی ">
-            </div>
-            <div class="form-group">
-                <input name="" class="form-control required" type="text" lang="en " placeholder=". . . . . . . .9891+">
-            </div>
-            <div class="form-group">
-                <input name="" class="form-control" type="text" placeholder="آخرین مدرک تحصیلی  ">
-            </div>
-
-            <div class="form-group">
-                <input name="" class="form-control " type="text" placeholder="آدرس محل کار   ">
-            </div>
-
-            <span class="btn bg-danger"> پاک کردن فرم</span>
-
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
-            <span>وضعیت سلامتی </span>
-
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="سابقه بیماری ">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="سابقه جراحی ">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="وضعیت بیمه  ">
-            </div>
-            <div class="form-group">
-
-                <textarea class="form-control" placeholder="شرح حال"></textarea>
-            </div>
-            <span class="btn bg-danger"> پاک کردن فرم</span>
-            <span id="check-form" class="btn bg-success"> ذخیره</span>
-
-        </div>
-        <div id="success" class="success"></div>
-    </div>
+    {% block add %}
     {% endblock %}
 </div>
 

@@ -1,45 +1,6 @@
 {% extends 'base_panel.html' %}
 {% load staticfiles %}
-
-
-<div class="row">
-        <div class="col-lg-12 col-md-12 ">
-            <nav class="navbar navbar-inverse ">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav1"
-                                aria-expanded="false">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-
-                        </button>
-
-                    </div>
-                    <form class="navbar-form navbar-right">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="کلمه مورد نظر . . .">
-                        </div>
-                        <button type="submit" class="btn btn-info">جستجو</button>
-                    </form>
-                    <div class="collapse navbar-collapse " id="nav1">
-                        <ul class="nav navbar-nav ">
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="خانه" href="#"><span  class="glyphicon glyphicon-home"></span></a></li>
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="درباره ما" href="#"><span
-                                    class="glyphicon glyphicon-question-sign"></span></a></li>
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="جدید" href="#"><span class="glyphicon glyphicon-plus-sign"></span></a>
-                            </li>
-
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="ویرایش" href="#"><span class="glyphicon glyphicon-edit"></span></a></li>
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="ذخیره" href="#"><span class="glyphicon glyphicon-floppy-disk"></span></a></li>
-                            <li><a data-toggle="tooltip" data-placement="bottom"  title="خروج " href="#"><span class="glyphicon glyphicon-off"></span></a></li>
-                        </ul>
-                    </div>
-
-                </div>
-            </nav>
-        </div>
-    </div>
+{% block add %}
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4 " >
             <div class="form-group">
@@ -48,7 +9,6 @@
         </div>
         <div class="col-lg-5 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
 
-        </div>
         <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4">
             <div class="form-group">
                 <input class="form-control" type="file">
@@ -58,15 +18,12 @@
 
 
     <div class="row ">
-        <form action="" id="contactForm">
+        <form action="/add_student/" id="contactForm">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " data-toggle="validator" role="form">
-
                         <span>مشخصات فردی</span>
 
                         <div class="form-group" >
-
                             <input name="first_name"  class="form-control required" type="text" placeholder="نام "  >
-
                         </div>
 
                         <div class="form-group  ">
@@ -85,6 +42,7 @@
                         <div class="form-group">
                             <input name="born" class="form-control" type="text" placeholder="تاریخ تولد  ">
                         </div>
+
                         <div class="form-group">
                             <input name="tel" class="form-control required" type="text" placeholder=". . . . . . . .9891+  ">
                         </div>
@@ -94,32 +52,36 @@
                             <textarea class="form-control" name="detail" placeholder="توضیحات"></textarea>
                         </div>
                         <span class="btn bg-danger"> پاک کردن فرم</span>
-
-
-                    </div>
-        </form>
-
+            </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " >
 
             <span>مشخصات اولیا</span>
 
             <div class="form-group">
-                <input name="" class="form-control required" type="text" placeholder="نام ">
+                <input name="father_name" class="form-control required" type="text" placeholder="نام پدر">
             </div>
             <div class="form-group ">
-                <input name="" class="form-control required" type="text" placeholder="نام خانوادگی ">
+                <input name="last_name" class="form-control required" type="text" placeholder="نام خانوادگی ">
             </div>
             <div class="form-group">
-                <input name="" class="form-control required" type="text" lang="en " placeholder=". . . . . . . .9891+">
+                <input name="father_phone" class="form-control required" type="text" lang="en " placeholder="شماره همراه پدر">
             </div>
             <div class="form-group">
-                <input name="" class="form-control" type="text" placeholder="آخرین مدرک تحصیلی  ">
+                <input name="father_ejuction" class="form-control" type="text" placeholder="آخرین مدرک تحصیلی پدر  ">
             </div>
 
             <div class="form-group">
-                <input name="" class="form-control " type="text" placeholder="آدرس محل کار   ">
+                <input name="" class="form-control " type="text" placeholder="آدرس محل کار پدر ">
             </div>
-
+            <div class="form-group ">
+                <input name="last_name" class="form-control required" type="text" placeholder="نام خانوادگی مادر ">
+            </div>
+            <div class="form-group">
+                <input name="mother_phone" class="form-control required" type="text" lang="en " placeholder="شماره همراه مادر">
+            </div>
+            <div class="form-group">
+                <input name="mother_ejuction" class="form-control" type="text" placeholder="آخرین مدرک تحصیلی مادر  ">
+            </div>
             <span class="btn bg-danger"> پاک کردن فرم</span>
 
         </div>
@@ -127,26 +89,29 @@
             <span>وضعیت سلامتی </span>
 
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="سابقه بیماری ">
+                <input type="text" name="physical_illness" class="form-control" placeholder="بیماری جسمی ">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="سابقه جراحی ">
+                <input type="text" name="physical_illness_medicine" class="form-control" placeholder="داروی مورد مصرف ">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="وضعیت بیمه  ">
+                <input type="text" name="mental_illness" class="form-control" placeholder="بیماری روحی و روانی">
             </div>
             <div class="form-group">
-
+                <input type="text" name="mental_illness_medicine" class="form-control" placeholder="داروی مورد مصرف ">
+            </div>
+            <div class="form-group">
                 <textarea class="form-control" placeholder="شرح حال"></textarea>
             </div>
             <span class="btn bg-danger"> پاک کردن فرم</span>
-            <span id="check-form" class="btn bg-success"> ذخیره</span>
+            <button type="button" class="btn btn-success">ذخیره</button>
 
         </div>
         <div id="success" class="success"></div>
+        </form>
     </div>
 
-
+{% endblock %}
 
 
 
