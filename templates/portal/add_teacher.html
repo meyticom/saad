@@ -4,55 +4,44 @@
              <form class="form-horizontal" action="/add_teacher/" method="post">
                  {% csrf_token %}
                  <div class="form-group">
-                     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                     <label for="inputEmail3" class="col-sm-2 control-label">نام</label>
                      <div class="col-sm-10">
-                         <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                         <input type="text" class="form-control" name="first_name" placeholder="Email">
                      </div>
                  </div>
                  <div class="form-group">
-                     <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                     <label for="inputPassword3" class="col-sm-2 control-label">نام خانوادگی</label>
                      <div class="col-sm-10">
-                         <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                         <input type="text" class="form-control" name="last_name" placeholder="Password">
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <label for="inputPassword3" class="col-sm-2 control-label">کد ملی</label>
+                     <div class="col-sm-10">
+                         <input type="text" class="form-control" name="national_code" placeholder="Password">
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <label for="inputPassword3" class="col-sm-2 control-label">موبایل</label>
+                     <div class="col-sm-10">
+                         <input type="text" class="form-control" name="mobile" placeholder="Password">
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <label for="inputPassword3" class="col-sm-2 control-label">محل سکونت</label>
+                     <div class="col-sm-10">
+                         <input type="text" class="form-control" name="address" placeholder="Password">
+                     </div>
+                     <div class="form-group">
+                         <label for="exampleInputEmail2">ایمیل</label>
+                         <input type="email" class="form-control" name="mail" placeholder="jane.doe@example.com">
                      </div>
                  </div>
                  <div class="form-group">
                      <div class="col-sm-offset-2 col-sm-10">
-                         <div class="checkbox">
-                             <label>
-                                 <input type="checkbox"> Remember me
-                             </label>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="form-group">
-                     <div class="col-sm-offset-2 col-sm-10">
-                         <button type="submit" class="btn btn-default">Sign in</button>
+                         <button type="submit" class="btn btn-default">ذخیره</button>
                      </div>
                  </div>
              </form>
          </div>
-            <div class="content2 right w50p">
-
-                <h3>مشخصات مربی</h3>
-                <form content="form-inline" action="/add_teacher/" method="post">
-                    {% csrf_token %}
-                    {{ form.first_name.errors }}
-                    <input type="text" name="first_name" placeholder="نام">
-                    {{ form.last_name.errors }}
-                    <input type="text" name="last_name" placeholder="نام خانوادگی">
-                    {{ form.national_code.errors }}
-                    <input type="text" name="national_code" placeholder="کد ملی">
-                    {{ form.mobile.errors }}
-                    <input type="text" name="mobile" placeholder="موبایل">
-                    {{ form.address.errors }}
-                    <input type="text" name="address" placeholder="محل سکونت">
-                    {{ form.mail.errors }}
-                    <input type="email" name="mail" class="form-control form-control-lg" id="lgFormGroupInput" placeholder=" ایمیل : you@example.com">
-
-
-                    <input name="" type="reset" class="btn btn-red" value="پاک کردن فرم">
-                    <input name="" type="submit" class="btn btn-danger" value="ثبت و ذخیره">
-                </form>
-            </div>
-
 {% endblock %}

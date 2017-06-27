@@ -15,17 +15,16 @@ def add_teacher(request):
         form = teacherform(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return paa(request)
+            return add_student(request)
         else:
             print form.errors
     else:
-        form = teacherform(format())
+        form = teacherform()
     return render(request,'portal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
 
 
 def add_student(request):
     code = Register_student.objects.all().last()
-    print (code.code[3:7])
     time = str(datetime.datetime.now())
     year = time[0:4]
     month = time[5:7]
