@@ -20,7 +20,7 @@ class teacherform(forms.ModelForm):
 class studentfrom(forms.ModelForm):
     code = forms.CharField(max_length=50)
     imgfile = forms.FileField(required=False)
-    first_name = forms.CharField(max_length=50)
+    first_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'class' : 'form-control'}))
     last_name = forms.CharField(max_length=50)
     father_name = forms.CharField(max_length=50)
     national_code = forms.CharField(max_length=50)

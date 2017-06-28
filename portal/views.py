@@ -76,16 +76,6 @@ def student_detail(request, pk):
     return render(request, 'portal/student_detail.html', {'student': student})
 
 
-
-
-
-
-
-
-
-
-
-
 #dont used this project
 def financial(request):
 #    studentforms = Register_student.objects.all()
