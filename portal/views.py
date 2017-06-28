@@ -69,6 +69,10 @@ def all_student(request):
 
 def student_detail(request, pk):
     student = get_object_or_404(Register_student, pk=pk)
+    if request.method == "POST":
+        pass
+    else:
+        student = studentfrom(instance=student)
     return render(request, 'portal/student_detail.html', {'student': student})
 
 
