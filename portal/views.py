@@ -9,13 +9,15 @@ import time,datetime,jdate
 
 
 
-def add_teacher(request):
+def teacher(request):
     teacherforms = Teacher.objects.all()
     if request.method =='POST':
-        form = teacherform(request.POST)
+        form = teacherform(request.POST,request.FILES)
         if form.is_valid():
+            mm = Teacher(imgfile=request.FILES['imgfile'])
+            mm.save()
             form.save(commit=True)
-            return add_student(request)
+            return add_student()
         else:
             print form.errors
     else:

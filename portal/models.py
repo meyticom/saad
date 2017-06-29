@@ -9,6 +9,7 @@ from django.db import models
 
 
 class Teacher(models.Model):
+    imgfile = models.FileField(upload_to='img_teacher/',null=True,blank=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     national_code = models.IntegerField()

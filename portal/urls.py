@@ -6,7 +6,7 @@ from portal import views
 
 urlpatterns = [
 
-    url(r'^add_teacher', views.add_teacher, name='add_teacher'),
+    url(r'^teacher', views.teacher, name='teacher'),
     url(r'^add_student', views.add_student, name='add_student'),
     url(r'^financial', views.financial, name='financial'),
     url(r'^$', views.add_student, name='add_student'),

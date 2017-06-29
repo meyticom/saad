@@ -7,6 +7,7 @@ from portal.models import Lesson, Register_student, Financial, Teacher
 
 
 class teacherform(forms.ModelForm):
+    imgfile = forms.FileField(required=False)
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
     national_code = forms.IntegerField()
@@ -15,7 +16,7 @@ class teacherform(forms.ModelForm):
     mail = forms.EmailField()
     class Meta:
         model = Teacher
-        fields = ('first_name', 'last_name', 'national_code', 'address', 'mobile','mail')
+        fields = ('imgfile','first_name', 'last_name', 'national_code', 'address', 'mobile','mail')
 
 class studentfrom(forms.ModelForm):
     code = forms.CharField(max_length=50)
