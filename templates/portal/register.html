@@ -9,7 +9,7 @@
                 <input class="form-control" type="text" placeholder="شماره صاد " disabled>
             </div>
         </div>
-        <div class="col-lg-5 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
+        <div class="col-lg-5 col-lg-offset-5 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
 
         <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4">
             <div class="form-group">
@@ -22,7 +22,7 @@
     <div class="row ">
         <form action="/add_student/" id="contactForm">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " data-toggle="validator" role="form">
-                        <span>مشخصات فردی</span>
+          <h3> <span class="label label-default">مشخصات فردی </span>  </h3>
 
                         <div class="form-group" >
                             <input name="first_name"  class="form-control required" type="text" placeholder="نام "  >
@@ -45,9 +45,7 @@
                             <input name="" class="form-control" type="text" placeholder="ایمیل  ">
                         </div>
 
-<div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="آخرین مدرک تحصیلی  ">
-                        </div>
+
 
 
   <div class="form-group">
@@ -68,40 +66,70 @@
                             <input name="tel" class="form-control required" type="text" placeholder=". . . . . . . .9891+  ">
                         </div>
 <div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="تلفن منزل   ">
+                            <input name="" class="form-control" type="text" placeholder="تلفن منزل ">
                         </div>
+<div class="form-group">
+<input name="" disabled class="form-control" type="text" placeholder="آخرین مدرک تحصیلی ">
 
-                        <button class="btn bg-danger"> پاک کردن فرم</button>
+<select id="cert" class="form-control selectpicker">
+<option selected > دیپلم</option>
+<option>لیسانس </option>
+<option>دیپلم </option>
+<option> </option>
+</select>
+                 </div>
+<div clas="form-group">
+<button class="btn bg-danger"> پاک کردن فرم</button>
+</div>
+
+
             </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " >
 
-            <span>مشخصات اولیا</span>
-
-            <div class="form-group">
-                <input name="" class="form-control required" type="text" placeholder="آخرین مدرک تحصیلی پدر">
-            </div>
-            <div class="form-group ">
-                <input name="" class="form-control required" type="text" placeholder="شغل پدر ">
-            </div>
-            <div class="form-group">
+            <h3> <span class="label label-default">مشخصات اولیا </span>  </h3>
+ <div class="form-group">
                 <input name="father_phone" class="form-control required" type="text" lang="en " placeholder="شماره همراه پدر">
             </div>
-            <div class="form-group">
-                <input name="" class="form-control" type="text" placeholder="آخرین مدرک تحصیلی مادر  ">
-            </div>
 
-            <div class="form-group">
+
+ <div class="form-group">
                 <input name="" class="form-control " type="text" placeholder="شغل مادر ">
             </div>
+
+
+
             <div class="form-group ">
                 <input name="" class="form-control required" type="text" placeholder="همراه مادر  ">
             </div>
+ <div class="form-group">
 
-            <span class="btn bg-danger"> پاک کردن فرم</span>
+       <input name="" disabled class="form-control " type="text" placeholder=" مدرک تحصیلی پدر ">
+<select id="cert" class="form-control selectpicker">
+<option selected > دیپلم</option>
+<option>لیسانس </option>
+<option>فوق لیسانس </option>
+<option>دکتری</option>
+</select>
+                        </div>
+
+            <div class="form-group">
+
+        <input name="" disabled class="form-control" type="text" placeholder=" مدرک تحصیلی مادر ">
+<select id="cert" class="form-control selectpicker">
+<option selected > دیپلم</option>
+<option>لیسانس </option>
+<option>فوق لیسانس </option>
+<option>دکتری</option>
+</select>
+                        </div>
+
+            <div clas="form-group">
+<button class="btn bg-danger"> پاک کردن فرم</button>
+</div>
 
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
-            <span>وضعیت سلامتی </span>
+            <h3> <span class="label label-default">وضعیت سلامتی </span>  </h3>
 
             <div class="form-group">
                 <input type="text" name="physical_illness" class="form-control" placeholder="بیماری جسمی ">
