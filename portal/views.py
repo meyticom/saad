@@ -14,10 +14,10 @@ def teacher(request):
     if request.method =='POST':
         form = teacherform(request.POST,request.FILES)
         if form.is_valid():
-            mm = Teacher(imgfile=request.FILES['imgfile'])
-            mm.save()
+            #mm = Teacher(imgfile=request.FILES['imgfile'])
+            #mm.save()
             form.save(commit=True)
-            return add_student()
+            return render(request,'portal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
         else:
             print form.errors
     else:
