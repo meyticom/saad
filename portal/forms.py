@@ -21,7 +21,7 @@ class teacherform(forms.ModelForm):
 class studentfrom(forms.ModelForm):
     code = forms.CharField(max_length=50)
     imgfile = forms.FileField(required=False)
-    first_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    first_name = forms.CharField(max_length=50) #,widget=forms.TextInput(attrs={'class' : 'form-control'})
     last_name = forms.CharField(max_length=50)
     father_name = forms.CharField(max_length=50)
     national_code = forms.CharField(max_length=50)
@@ -48,6 +48,8 @@ class studentfrom(forms.ModelForm):
     mental_illness_medicine = forms.CharField(max_length=50,required=False)
     mental_illness = forms.CharField(max_length=50,required=False)
     detail = forms.CharField(max_length=1000,required=False)
+
+
     class Meta:
         model=Register_student
         fields = ('code','imgfile','first_name','last_name','father_name','national_code','mail','born','end_ejuction','address','phone','mobile','school','school_time',

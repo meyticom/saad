@@ -9,7 +9,7 @@ import time,datetime,jdate
 def teacher_edit(request,pk):
     teacher = get_object_or_404(Teacher,pk=pk)
     if request.method=="POST":
-        form = teacherform(request.POST,instance=teacher)
+        form = teacherform(request.POST,request.FILES,instance=teacher)
         if form.is_valid():
             teacher = form.save(commit=False)
             teacher.save()
@@ -53,8 +53,6 @@ def add_student(request):
         form = studentfrom(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            newdoc = Register_student(imgfile=request.FILES['imgfile'])
-            newdoc.save()
             form.save(commit=True)
             father = {'to':'{0}'.format(data['father_phone'].encode('utf8')),'msg': 'گرانمایه ارجمند:آقای {0} پیوستن شما را به خانواده بزرگ صاد تبریک می گوییم '.format(data['last_name'].encode('utf8')),'uname':'meyticom','pass':'mme2700230'}
             #urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from=100020400&{0}".format(urllib.urlencode(father)))
@@ -80,12 +78,14 @@ def all_student(request):
 def student_detail(request, pk):
     student = get_object_or_404(Register_student, pk=pk)
     if request.method == "POST":
-        pass
+        form = studentfrom(request.POST,request.FILES,instance=student)
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.save()
+            return redirect('all_student')
     else:
         student = studentfrom(instance=student)
     return render(request, 'portal/student_detail.html', {'student': student})
-
-
 
 
 #dont used this project

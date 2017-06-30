@@ -5,17 +5,19 @@
 
 
 {% block add %}
+<form id="contactform" class="form-horizontal" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
     <div class="row">
         <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4 " >
             <div class="form-group">
-                <input class="form-control" type="text" placeholder="شماره صاد " disabled>
+                {{ student.code }}
             </div>
         </div>
         <div class="col-lg-5 col-lg-offset-6 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
 
         <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4">
             <div class="form-group">
-                <input class="form-control" type="file">
+                {{ student.imgfile }}
             </div>
         </div>
     </div>
@@ -23,9 +25,6 @@
 
     <div class="row ">
     {% if student %}
-        <form id="contactForm">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " data-toggle="validator" role="form">
-            </div>
             <span> مشخصات فردی</span>
 
             <div class="form-group" >
@@ -43,17 +42,39 @@
             <div class="form-group">
                 {{ student.national_code }}
             </div>
+
+            <div class="form-group">
+                {{ student.mail }}
+            </div>
+
+            <div class="form-group">
+                {{ student.school }}
+            </div>
+
+            <div class="form-group">
+                {{ student.school_time }}
+            </div>
+
+            <div class="form-group">
+                {{ student.address }}
+            </div>
+
             <div class="form-group">
                 {{ student.born }}
             </div>
 
             <div class="form-group">
-                <input name="tel" class="form-control required" type="text" placeholder=". . . . . . . .9891+  ">
+                {{ student.mobile }}
             </div>
 
             <div class="form-group">
-                {{ student.detail }}
+                {{ student.phone }}
             </div>
+
+            <div class="form-group">
+                {{ student.end_ejuction }}
+            </div>
+
             <span class="btn bg-danger"> پاک کردن فرم</span>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " >
 
@@ -69,9 +90,7 @@
             <div class="form-group">
                 {{ student.father_work }}
             </div>
-            <div class="form-group ">
-                <input name="last_name" class="form-control required" type="text" placeholder="نام خانوادگی مادر ">
-            </div>
+
             <div class="form-group">
                 {{ student.mother_phone }}
             </div>
@@ -79,7 +98,7 @@
                 {{ student.mother_ejuction }}
             </div>
             <span class="btn bg-danger"> پاک کردن فرم</span>
-
+            </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
             <span>وضعیت سلامتی </span>
@@ -97,18 +116,16 @@
                 {{ student.mental_illness_medicine}}
             </div>
             <div class="form-group">
-                <textarea class="form-control" placeholder="شرح حال"></textarea>
+                {{ student.detail }}
             </div>
             <span class="btn bg-danger"> پاک کردن فرم</span>
             <button type="button" class="btn btn-success">ذخیره</button>
 
         </div>
-        <div id="success" class="success"></div>
-        </form>
+        <button id="send" class="btn bg-success"> ارسال</button>
     {% endif %}
     </div>
-
-
+</form>
 
 {% endblock %}
 

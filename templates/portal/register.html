@@ -1,131 +1,107 @@
 {% extends 'base_panel.html' %}
 {% load staticfiles %}
 {% block add %}
-
-<div class="container" >
- <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4 " >
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="شماره صاد " disabled>
-            </div>
+    <form action="/add_student/" id="contactForm" method="post">
+        {% csrf_token %}
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4 ">
+        <div class="form-group">
+            <input name="code" class="form-control" type="text" placeholder="شماره صاد " value="{{ final }}">
         </div>
-        <div class="col-lg-5 col-lg-offset-5 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
-
+    </div>
+    <div class="col-lg-5 col-lg-offset-5 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-2 col-xs-offset-2">
         <div class="col-lg-3 col-md-3 col-sm-2 col-xs-4">
             <div class="form-group">
                 <input class="form-control" type="file">
             </div>
         </div>
     </div>
-
-
-    <div class="row ">
-        <form action="/add_student/" id="contactForm">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " data-toggle="validator" role="form">
-          <h3> <span class="label label-default">مشخصات فردی </span>  </h3>
-
-                        <div class="form-group" >
-                            <input name="first_name"  class="form-control required" type="text" placeholder="نام "  >
-                        </div>
-
-                        <div class="form-group  ">
-                            <input name="last_name" class="form-control required" type="text" placeholder="نام خانوادگی ">
-                        </div>
-
-                        <div class="form-group">
-                            <input name="father_name" class="form-control" type="text" placeholder="نام پدر ">
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <input name="national_code" class="form-control required" type="text" placeholder="شماره ملی  ">
-                        </div>
-                        <div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="ایمیل  ">
-                        </div>
-
-
-
-
-  <div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="مدرسه  ">
-                        </div>
-  <div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="شیفت مدرسه  ">
-                        </div>
-
-                        <div class="form-group">
-
-                            <textarea class="form-control" name="detail" placeholder="آدرس"></textarea>
-                        </div>
-<div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="تاریخ تولد  ">
-                        </div>
-<div class="form-group">
-                            <input name="tel" class="form-control required" type="text" placeholder=". . . . . . . .9891+  ">
-                        </div>
-<div class="form-group">
-                            <input name="" class="form-control" type="text" placeholder="تلفن منزل ">
-                        </div>
-<div class="form-group">
-<input name="" disabled class="form-control" type="text" placeholder="آخرین مدرک تحصیلی ">
-
-<select id="cert" class="form-control selectpicker">
-<option selected > دیپلم</option>
-<option>لیسانس </option>
-<option>دیپلم </option>
-<option> </option>
-</select>
-                 </div>
-<div clas="form-group">
-<button class="btn bg-danger"> پاک کردن فرم</button>
 </div>
 
-
+<div class="row ">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " data-toggle="validator" role="form">
+            <h3><span class="label label-default">مشخصات فردی </span></h3>
+            <div class="form-group">
+                <input name="first_name" class="form-control required" type="text" placeholder="نام ">
             </div>
+            <div class="form-group  ">
+                <input name="last_name" class="form-control required" type="text" placeholder="نام خانوادگی ">
+            </div>
+            <div class="form-group">
+                <input name="father_name" class="form-control" type="text" placeholder="نام پدر ">
+            </div>
+            <div class="form-group">
+                <input name="national_code" class="form-control required" type="text" placeholder="شماره ملی  ">
+            </div>
+            <div class="form-group">
+                <input name="mail" class="form-control" type="text" placeholder="ایمیل  ">
+            </div>
+            <div class="form-group">
+                <input name="school" class="form-control" type="text" placeholder="مدرسه  ">
+            </div>
+            <div class="form-group">
+                <input name="school_time" class="form-control" type="text" placeholder="شیفت مدرسه  ">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="address" placeholder="آدرس"></textarea>
+            </div>
+            <div class="form-group">
+                <input name="born" class="form-control" type="text" placeholder="تاریخ تولد  ">
+            </div>
+            <div class="form-group">
+                <input name="mobile" class="form-control required" type="text" placeholder=". . . . . . . .9891+  ">
+            </div>
+            <div class="form-group">
+                <input name="phone" class="form-control" type="text" placeholder="تلفن منزل ">
+            </div>
+            <div class="form-group">
+                <input name="" disabled class="form-control" type="text" placeholder="آخرین مدرک تحصیلی ">
+                <select name="end_ejuction" id="cert" class="form-control selectpicker">
+                    <option selected> دیپلم</option>
+                    <option>لیسانس</option>
+                    <option>دیپلم</option>
+                    <option></option>
+                </select>
+            </div>
+            <div clas="form-group">
+                <button class="btn bg-danger"> پاک کردن فرم</button>
+            </div>
+        </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " >
 
             <h3> <span class="label label-default">مشخصات اولیا </span>  </h3>
- <div class="form-group">
+            <div class="form-group">
                 <input name="father_phone" class="form-control required" type="text" lang="en " placeholder="شماره همراه پدر">
             </div>
-
-
- <div class="form-group">
-                <input name="" class="form-control " type="text" placeholder="شغل مادر ">
+            <div class="form-group">
+                <input name="" disabled class="form-control " type="text" placeholder=" مدرک تحصیلی پدر ">
+                <select name="father_ejuction" id="cert" class="form-control selectpicker">
+                    <option selected> دیپلم</option>
+                    <option>لیسانس</option>
+                    <option>فوق لیسانس</option>
+                    <option>دکتری</option>
+                </select>
             </div>
-
-
 
             <div class="form-group ">
-                <input name="" class="form-control required" type="text" placeholder="همراه مادر  ">
+                <input name="mother_phone" class="form-control required" type="text" placeholder="همراه مادر  ">
             </div>
- <div class="form-group">
-
-       <input name="" disabled class="form-control " type="text" placeholder=" مدرک تحصیلی پدر ">
-<select id="cert" class="form-control selectpicker">
-<option selected > دیپلم</option>
-<option>لیسانس </option>
-<option>فوق لیسانس </option>
-<option>دکتری</option>
-</select>
-                        </div>
 
             <div class="form-group">
+                <input name="mother_work" class="form-control " type="text" placeholder="شغل مادر ">
+            </div>
 
-        <input name="" disabled class="form-control" type="text" placeholder=" مدرک تحصیلی مادر ">
-<select id="cert" class="form-control selectpicker">
-<option selected > دیپلم</option>
-<option>لیسانس </option>
-<option>فوق لیسانس </option>
-<option>دکتری</option>
-</select>
-                        </div>
-
-            <div clas="form-group">
-<button class="btn bg-danger"> پاک کردن فرم</button>
-</div>
+            <div class="form-group">
+                <input name="" disabled class="form-control" type="text" placeholder=" مدرک تحصیلی مادر ">
+                <select name="mother_ejuction" id="cert" class="form-control selectpicker">
+                    <option selected> دیپلم</option>
+                    <option>لیسانس</option>
+                    <option>فوق لیسانس</option>
+                    <option>دکتری</option>
+                </select>
+            </div>
+            <button class="btn bg-danger"> پاک کردن فرم</button>
+        </div>
 
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
@@ -144,19 +120,12 @@
                 <input type="text" name="mental_illness_medicine" class="form-control" placeholder="داروی مورد مصرف ">
             </div>
             <div class="form-group">
-                <textarea class="form-control" placeholder="شرح حال"></textarea>
+                <textarea name="detail" class="form-control" placeholder="شرح حال"></textarea>
             </div>
             <button class="btn bg-danger"> پاک کردن فرم</button>
             <button id="check-form" type="button" class="btn btn-warning">بررسی فرم</button>
-<button id="send" class="btn bg-success"> ارسال</button>
-
+            <button id="send" class="btn bg-success"> ارسال</button>
         </div>
-
-        </form>
-    </div>
-
-
 </div>
-
-
+    </form>
 {% endblock %}
