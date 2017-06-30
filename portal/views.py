@@ -1,21 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 import urllib
 from portal.models import *
 from portal.forms import *
 import time,datetime,jdate
 
+def teacher_edit(request,pk):
+    teacher = get_object_or_404(Teacher,pk=pk)
+    if request.method=="POST":
+        form = teacherform(request.POST,instance=teacher)
+        if form.is_valid():
+            teacher = form.save(commit=False)
+            teacher.save()
+            return redirect('teacherview')
+    else:
+        teacher = teacherform(instance=teacher)
+    return render(request,'portal/teacher_edit.html',{'teacher':teacher})
 
 
-
-def teacher(request):
+def teacherview(request):
     teacherforms = Teacher.objects.all()
     if request.method =='POST':
         form = teacherform(request.POST,request.FILES)
         if form.is_valid():
-            #mm = Teacher(imgfile=request.FILES['imgfile'])
-            #mm.save()
             form.save(commit=True)
             return render(request,'portal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
         else:
@@ -76,6 +84,8 @@ def student_detail(request, pk):
     else:
         student = studentfrom(instance=student)
     return render(request, 'portal/student_detail.html', {'student': student})
+
+
 
 
 #dont used this project

@@ -25,14 +25,14 @@
 					<td>{{ UserProfile.address }}	</td>
 					<td>{{ UserProfile.mobile }}	</td>
                     <td>{{ UserProfile.mail }}</td>
-                    <td><a class="btn btn-default" href="/student/{{ UserProfile.pk }}" role="button">ویرایش</a></td>
+                    <td><a class="btn btn-default" href="/et/{{ UserProfile.pk }}" role="button">ویرایش</a></td>
 				</tr>
                 {% endfor %}
         </table>
 </div>
 
 <div class="row " style="margin:0 auto; !important">
-       <form id="contactform" class="form-horizontal" action="/teacher/" method="post" enctype="multipart/form-data">
+       <form id="contactform" class="form-horizontal" action="/teacherview/" method="post" enctype="multipart/form-data">
            {% csrf_token %}
            <div class="col-lg-12 col-md-10 col-sm-8 col-xs-8 " data-toggle="validator" role="form">
                <span>مشخصات مربی</span>
