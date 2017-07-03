@@ -1,63 +1,59 @@
-{% extends 'base_panel.html' %}
-{% block title %}
-    <title>مدیریت دانش آموزان</title>
-{% endblock %}
+
+
+
+    <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-4 col-xs-4">
+        {% extends 'base_panel.html' %}
+        {% block title %}
+        <title>مدیریت دانش آموزان</title>
+        {% endblock %}
 
 
 {% block add %}
-<div class="row">
-    <div class="col-lg-10 col-md-10 col-sm-4 col-xs-4">
-        <h3>اطلاعات کامل اعضا</h3>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-8 col-md-8 col-sm-4 col-xs-4">
-         <table class="table table-bordered table-striped ">
-            <thead>
-                <tr tabel-danger>
-                    <table class="table table-bordered table-striped ">
-                        <tr tabel-danger>
-                            <th>عکس</th>
-                            <th>    نام</th>
-                            <th>نام خانوادگی</th>
-                            <th>نام پدر</th>
-                            <th>کد قرآن آموزی</th>
-                            <th>کد ملی</th>
-                            <th>تاریخ تولد</th>
-                            <th>اخرین مدرک تحصیلی</th>
-                            <th>نام مربی</th>
-                            <th>تاریخ تولد‍‍</th>
-                            <th>شماره تلفن</th>
-                            <th>همراه پدر</th>
-                            <th>نشانی منزل</th>
-                            <th>------</th>
-                        </tr>
-            </thead>
+            <table class="table table-bordered table-responsive table-hover ">
+                <thead>
+                <tr >
+                    <th>عکس</th>
+                    <th>نام</th>
+                    <th>نام خانوادگی</th>
+                    <th>نام پدر</th>
+                    <th>کد قرآن آموزی</th>
+                    <th>کد ملی</th>
+                    <th>تاریخ تولد</th>
+                    <th>اخرین مدرک تحصیلی</th>
+                    <th>نام مربی</th>
+                    <th>تاریخ تولد‍‍</th>
+                    <th>شماره تلفن</th>
+                    <th>همراه پدر</th>
+                    <th>نشانی منزل</th>
+                    <th>------</th>
+                </tr>
+                </thead>
 
 
                 {% for UserProfile in all %}
                     <tr>
-                        <td>{% if UserProfile.imgfile %}<img src="{{ UserProfile.imgfile.url }} " width="50px"  height="50px">{% endif %}	</td>
-                        <td>{{ UserProfile.first_name }}	</td>
-                        <td>{{ UserProfile.last_name }} 	</td>
-                        <td>{{ UserProfile.father_name }}	</td>
-                        <td>{{ UserProfile.code }}	</td>
-                        <td>{{ UserProfile.national_code }}	</td>
+                        <td>{% if UserProfile.imgfile %}
+                            <img src="{{ UserProfile.imgfile.url }} " width="50px" height="50px">{% endif %}    </td>
+                        <td>{{ UserProfile.first_name }}    </td>
+                        <td>{{ UserProfile.last_name }}    </td>
+                        <td>{{ UserProfile.father_name }}    </td>
+                        <td>{{ UserProfile.code }}    </td>
+                        <td>{{ UserProfile.national_code }}    </td>
                         <td>{{ UserProfile.born }}</td>
                         <td>{{ UserProfile.end_ejuction }}</td>
-                        <td>{{ UserProfile.teacher }}	</td>
-                        <td>{{ UserProfile.born }}	</td>
-                        <td>{{ UserProfile.phone }}	</td>
+                        <td>{{ UserProfile.teacher }}    </td>
+                        <td>{{ UserProfile.born }}    </td>
+                        <td>{{ UserProfile.phone }}    </td>
                         <td>{{ UserProfile.father_phone }}</td>
-                        <td>{{ UserProfile.address}}	</td>
-                        <td><a class="btn btn-default" href="/student/{{ UserProfile.pk }}" role="button">ویرایش</a></td>
-
+                        <td>{{ UserProfile.address }}    </td>
+                        <td><a class="btn btn-default" href="/student/{{ UserProfile.pk }}" role="button">ویرایش</a>
+                        </td>
                     </tr>
                 {% endfor %}
-         </table>
+            </table>
+        </div>
     </div>
-</div>
 
 
 {% endblock %}
