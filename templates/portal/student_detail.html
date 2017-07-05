@@ -5,180 +5,130 @@
 
 
 {% block add %}
-
+<form id="contactform" class="form-horizontal" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
 
     <div class="row">
-    <div class="col-lg-3  col-md-3 col-sm-4 col-xs-4 ">
-         <form id="contactform" class="form-horizontal" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">
-                {{ student.code }}
-            </div>
+        <div class="col-lg-3  col-md-3 col-sm-4 col-xs-4 ">
+                <div class="form-group">
+                    {{ student.code }}
+                </div>
 
-<div class="col-lg-3 col-lg-offset-6 col-md-3 col-md-offset-6 col-sm-4 col-sm-offset-4">
-    <div class="form-group">
-                {{ student.imgfile }}
-            </div>
-</div>
-    </form>
-</div>
+                <div class="col-lg-3 col-lg-offset-6 col-md-3 col-md-offset-6 col-sm-4 col-sm-offset-4">
+                    <div class="form-group">
+                        {{ student.imgfile }}
+                    </div>
+                </div>
+        </div>
 
     </div>
 
-
-
-
-
     <div class="row">
-   <div class="col-lg-4 cl-md-4 col-sm-3 col-xs-3">
-   <span> مشخصات فردی</span>
-   <form id="contactform" class="form-horizontal" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-  {% if student %}
-
-
-            <div class="form-group" >
-                {{ student.first_name }}
-            </div>
-
-            <div class="form-group  ">
-                {{ student.last_name }}
-            </div>
-
-            <div class="form-group">
-                {{ student.father_name }}
-            </div>
-
-            <div class="form-group">
-                {{ student.national_code }}
-            </div>
-
-            <div class="form-group">
-                {{ student.mail }}
-            </div>
-
-            <div class="form-group">
-                {{ student.school }}
-            </div>
-
-            <div class="form-group">
-                {{ student.school_time }}
-            </div>
-
-            <div class="form-group">
-                {{ student.address }}
-            </div>
-
-            <div class="form-group">
-                {{ student.born }}
-            </div>
-
-            <div class="form-group">
-                {{ student.mobile }}
-            </div>
-
-            <div class="form-group">
-                {{ student.phone }}
-            </div>
-
-            <div class="form-group">
-
-                {{ student.end_ejuction }}
-            </div>
-      <div class="form-group">
-
-      <button class="btn bg-danger"> پاک کردن فرم</button>
-      </div>
-
-
-      </form>
-
-   </div>
-
-
-
-
-
-
-            <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 " >
-
-            <span>مشخصات اولیا</span>
-                <form id="contactform" class="form-horizontal" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-
-            <div class="form-group">
-                {{ student.father_phone }}
-            </div>
-            <div class="form-group">
-                {{ student.father_ejuction }}
-            </div>
-
-            <div class="form-group">
-                {{ student.father_work }}
-            </div>
-
-            <div class="form-group">
-                {{ student.mother_phone }}
-            </div>
-            <div class="form-group">
-                {{ student.mother_ejuction }}
-            </div>
+        <div class="col-lg-4 cl-md-4 col-sm-3 col-xs-3">
+            <span> مشخصات فردی</span>
+                {% if student %}
                     <div class="form-group">
-                       <button class="btn bg-danger"> پاک کردن فرم</button>
+                        {{ student.first_name }}
                     </div>
 
+                    <div class="form-group  ">
+                        {{ student.last_name }}
+                    </div>
 
-      </form>
-      </div>
+                    <div class="form-group">
+                        {{ student.father_name }}
+                    </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 ">
-            <span>وضعیت سلامتی </span>
-             <form id="contactform" class="form-horizontal" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+                    <div class="form-group">
+                        {{ student.national_code }}
+                    </div>
 
-            <div class="form-group">
-                {{ student.physical_illness }}
-            </div>
-            <div class="form-group">
-                {{ student.physical_illness_medicine }}
-            </div>
-            <div class="form-group">
-                {{ student.mental_illness }}
-            </div>
-            <div class="form-group">
-                {{ student.mental_illness_medicine}}
-            </div>
-            <div class="form-group">
-                {{ student.detail }}
-            </div>
-            <div class="form-group">
-            <button class="btn bg-danger"> پاک کردن فرم</button>
-            <button type="button" class="btn btn-success">ذخیره</button>
-            <button id="send" class="btn bg-success"> ارسال</button>
-            </div>
+                    <div class="form-group">
+                        {{ student.mail }}
+                    </div>
 
-      </form>
-      </div>
+                    <div class="form-group">
+                        {{ student.school }}
+                    </div>
 
-    {% endif %}
+                    <div class="form-group">
+                        {{ student.school_time }}
+                    </div>
 
-    </div>
+                    <div class="form-group">
+                        {{ student.address }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ student.born }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ student.mobile }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ student.phone }}
+                    </div>
+
+                    <div class="form-group">
+
+                        {{ student.end_ejuction }}
+                    </div>
+                    <div class="form-group">
+
+                        <button class="btn bg-danger"> پاک کردن فرم</button>
+                    </div>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 ">
+
+                        <span>مشخصات اولیا</span>
+                            <div class="form-group">
+                                {{ student.father_phone }}
+                            </div>
+                            <div class="form-group">
+                                {{ student.father_ejuction }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ student.father_work }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ student.mother_phone }}
+                            </div>
+                            <div class="form-group">
+                                {{ student.mother_ejuction }}
+                            </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 ">
+                        <span>وضعیت سلامتی </span>
+                            <div class="form-group">
+                                {{ student.physical_illness }}
+                            </div>
+                            <div class="form-group">
+                                {{ student.physical_illness_medicine }}
+                            </div>
+                            <div class="form-group">
+                                {{ student.mental_illness }}
+                            </div>
+                            <div class="form-group">
+                                {{ student.mental_illness_medicine }}
+                            </div>
+                            <div class="form-group">
+                                {{ student.detail }}
+                            </div>
+
+                            <div class="form-group">
+                                <button id="send" class="btn bg-success"> ارسال</button>
+                            </div>
+                    </div>
+                {% endif %}
+        </div>
+</form>
 
 {% endblock %}
-
-{% comment %}{% extends 'base_panel.html' %}
-
-{% block add %}
-    <div class="content">
-        {% if student.published_date %}
-            <div class="date">
-                {{ student.published_date }}
-            </div>
-        {% endif %}
-        <a class="btn btn-default" href="{% url 'post_edit' pk=student.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <h1>{{ student.last_name }}</h1>
-    </div>
-{% endblock %}
-{% endcomment %}
 
 
