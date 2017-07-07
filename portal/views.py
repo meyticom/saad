@@ -70,7 +70,7 @@ def add_student(request):
 
 def all_student(request):
     all = Register_student.objects.all()
-    return render(request,'portal/student.html',{'all':all})
+    return render(request,'student/index.html',{'all':all})
 
 
 
@@ -103,4 +103,4 @@ def financial(request):
     return render(request,'portal/financial.html',{})
 
 def paa(request):
-    render(request,'portal/hello.html',{})
+    render(request,'student/index.html',{})

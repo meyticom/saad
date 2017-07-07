@@ -25,7 +25,7 @@ SECRET_KEY = ')2u%^)axz22*60#7a(y3os9@1_&^!)6r-nqu6!2o6&_*1pg3$r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_markdown',
     'portal',
+    'student',
 
 ]
 
@@ -135,3 +136,6 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, "static"),
 )
+
+
+X_FRAME_OPTIONS = 'ALLOW'

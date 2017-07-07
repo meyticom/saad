@@ -1,0 +1,118 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" style="height: 100% !important;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>لیست </title>
+    <link rel="stylesheet" href="{% static 'student/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'student/css/style.css'%}">
+</head>
+<body style="height: 90% !important;">
+<div class=" col-lg-12 col-md-12 col-sm-12" style="height:100% !important;">
+    <div id="carousel-example-generic" class=" carousel slide" data-ride="carousel" style="height: 100% !important;">
+
+
+        <!-- Wrapper for slides -->
+
+
+        <div class=" carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="box1 ">
+                    <img class="img-responsive rotate" src="{% static 'student/img/javad.png'%}" alt="">
+                </div>
+
+                      <div class="pull-left upic col-lg-3 col-lg-offset-2  col-sm-3 ">
+                    <p style="text-align: center;"  class=" "></p>
+                </div>
+                <div class="pull-right upic col-lg-3 col-lg-offset-4 col-sm-3 col-sm-offset-4">
+                    <p style="text-align: center;"  class=" ">صمد احمدی</p>
+                </div>
+
+
+            </div>
+
+            <div class="item">
+                <div class="box1 ">
+                    <img class="img-responsive rotate" src="{% static 'student/img/loghman.png'%}" alt="">
+                </div>
+                   <div class="pull-left upic col-lg-3 col-lg-offset-2  col-sm-3 ">
+                    <p style="text-align: center;" class=" ">صمد احمدی</p>
+                </div>
+                <div class="pull-right upic col-lg-3 col-lg-offset-4 col-sm-3 col-sm-offset-4">
+                    <p style="text-align: center;"  class=" ">صمد احمدی</p>
+                </div>
+
+
+            </div>
+            <div class="item">
+                <div class="box1 ">
+                <img class="img-responsive rotate" src="{% static 'student/img/vahid.jpeg'%}" alt="">
+                </div>
+               <div class="pull-left upic col-lg-3 col-lg-offset-2  col-sm-3 ">
+                    <p style="text-align: center;"  class=" ">صمد احمدی</p>
+                </div>
+                <div class="pull-right upic col-lg-3 col-lg-offset-4 col-sm-3 col-sm-offset-4">
+                    <p style="text-align: center;"  class=" ">صمد احمدی</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="buttons">
+            <div class=" col-lg-3 col-md-3 col-sm-4 col-xs-4 ">
+                <div class="form-group">
+                    <button id="present" style="padding-bottom: 30px;" class=" form-control btn btn-lg btn-success">حاضر</button>
+                </div>
+
+            </div>
+            <div class="col-lg-3 col-lg-offset-2 col-md-3  col-md-offset-2 col-sm-4  col-sm-offset-2 col-xs-4 col-xs-offset-2">
+                <div class="form-group">
+                    <button id="absent" style="padding-bottom: 30px;" class=" form-control btn btn-lg btn-danger">غایب</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Controls -->
+        <a class=" carousel-control left" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyph-icon glyph-icon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class=" carousel-control right" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyph-icon glyph-icon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div>
+
+    <!--buttons-->
+
+
+</div>
+
+
+<script src="{% static 'student/js/jquery.min.js'%}"></script>
+<script src="{% static 'student/js/bootstrap.min.js'%}"></script>
+<script>
+    $(document).ready(function () {
+        $("#carousel-example-generic").carousel({
+            interval: false
+        });
+    });
+</script>
+<script>
+    document.addEventListener('keydown', function(event) {
+    if (event.keyCode == 48) {
+        document.getElementById('present').clicked == true;
+
+    }
+    else if (event.keyCode == 49) {
+        document.getElementById('absent').clicked == true;
+    }
+}, true);
+
+</script>
+</body>
+</html>
