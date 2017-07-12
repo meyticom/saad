@@ -18,6 +18,16 @@ class teacherform(forms.ModelForm):
         model = Teacher
         fields = ('imgfile','first_name', 'last_name', 'national_code', 'address', 'mobile','mail')
 
+class Lessonform(forms.ModelForm):
+    name = forms.CharField(max_length=50)
+    number = forms.IntegerField(required=False)
+    teacher = forms.ModelChoiceField(queryset=Teacher.objects.all())
+    time = forms.CharField(max_length=100,required=False)
+    date = forms.CharField(max_length=50,required=False)
+    class Meta:
+        model=Lesson
+        fields='__all__'
+
 class studentfrom(forms.ModelForm):
     CHOICES_ejuction=(('1','دکتری'),('2','فوق لیسانس'),('3','لیسانس'),('4','فوق دیپلم'),('5','دیپلم'),('6','یازدهم'),('7','دهم'),
                       ('8', 'هشتم'),('9','هفتم'),('10','ششم'),('11','پنجم'),('12','چهارم'),('13','سوم'),('14','دوم'),('15','یکم'),
@@ -25,7 +35,7 @@ class studentfrom(forms.ModelForm):
     CHOICES_father_ejuction=(('1','دکتری'),('2','فوق لیسانس'),('3','لیسانس'),('4','فوق دیپلم'),('5','دیپلم'),)
     CHOICES_mother_ejuction=(('1','دکتری'),('2','فوق لیسانس'),('3','لیسانس'),('4','فوق دیپلم'),('5','دیپلم'),('6','زیر دیپلم'))
     code = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder' : 'شماره صاد'}))
-    imgfile = forms.ImageField(required=False,)#widget=forms.FileInput(attrs={'class':'img-thumbnail'})
+    imgfile = forms.FileField(required=False,)#widget=forms.FileInput(attrs={'class':'img-thumbnail'})
     first_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder' : 'نام'}))
     last_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder' : 'نام خانوادگی'}))
     father_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'placeholder' : 'نام پدر'}))

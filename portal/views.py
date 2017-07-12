@@ -70,7 +70,7 @@ def add_student(request):
 
 def all_student(request):
     all = Register_student.objects.all()
-    return render(request,'student/index.html',{'all':all})
+    return render(request,'portal/student.html',{'all':all})
 
 
 
@@ -82,11 +82,25 @@ def student_detail(request, pk):
         if form.is_valid():
             student = form.save(commit=False)
             student.save()
-            return redirect('all_student')
+            #return redirect('all_student')
+            return paa(request)
     else:
         student = studentfrom(instance=student)
     return render(request, 'portal/student_detail.html', {'student': student})
 
+
+def lesson_all(request):
+    lesson = Lesson.objects.all()
+    if request.method=="POST":
+        form = Lessonform(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return all_student(request)
+        else:
+            print form.errors
+    else:
+        form = Lessonform()
+    return render(request,'portal/lesson_all.html',{'lesson':lesson,'form':form})
 
 #dont used this project
 def financial(request):
@@ -95,7 +109,7 @@ def financial(request):
         form = financialform(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return paa(request)
+            return all_student(request)
         else:
             print form.errors
     else:

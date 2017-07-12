@@ -24,8 +24,8 @@ class Teacher(models.Model):
 class Lesson(models.Model):
     name = models.CharField(max_length=50)
     number = models.IntegerField(null=True)
-    teacher = models.ManyToManyField(Teacher)
-    time = models.IntegerField()
+    teacher = models.CharField(max_length=100)
+    time = models.CharField(max_length=100)
     date = models.CharField(max_length=50)
 
     def __unicode__(self):
