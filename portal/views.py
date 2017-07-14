@@ -95,7 +95,7 @@ def lesson_all(request):
         form = Lessonform(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return all_student(request)
+            return redirect('lesson_all')
         else:
             print form.errors
     else:
@@ -108,8 +108,9 @@ def lesson_edit(request,pk):
     if request.method=="POST":
         form = Lessonform(request.POST,instance=lesson)
         if form.is_valid():
-            form.save(commit=False)
-            return lesson_all(request)
+            lesson = form.save(commit=False)
+            lesson.save()
+            return redirect('lesson_all')
         else:
             print form.errors
     else:
