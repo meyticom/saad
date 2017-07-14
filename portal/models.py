@@ -23,7 +23,7 @@ class Teacher(models.Model):
 
 class Lesson(models.Model):
     name = models.CharField(max_length=50)
-    number = models.IntegerField(null=True)
+    number = models.CharField(max_length=50,null=True,blank=True)
     teacher = models.CharField(max_length=100)
     time = models.CharField(max_length=100)
     date = models.CharField(max_length=50)

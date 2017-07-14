@@ -12,7 +12,9 @@ urlpatterns = [
     url(r'^$', views.add_student, name='add_student'),
     url(r'^all', views.all_student, name='all_student'),
     url(r'^student/(?P<pk>\d+)/$', views.student_detail, name='student_detail'),
-    url(r'^lesson/$',views.lesson_all, name='lesson_all')
+    url(r'^lesson/$',views.lesson_all, name='lesson_all'),
+    url(r'^elesson/(?P<pk>\d+)/$',views.lesson_edit, name='lesson_edit')
+
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

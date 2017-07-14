@@ -20,7 +20,7 @@ class teacherform(forms.ModelForm):
 
 class Lessonform(forms.ModelForm):
     name = forms.CharField(max_length=50)
-    number = forms.IntegerField(required=False)
+    number = forms.CharField(required=False)
     teacher = forms.ModelChoiceField(queryset=Teacher.objects.all())
     time = forms.CharField(max_length=100,required=False)
     date = forms.CharField(max_length=50,required=False)
@@ -64,13 +64,12 @@ class studentfrom(forms.ModelForm):
     mental_illness = forms.CharField(max_length=50,required=False,widget=forms.TextInput(attrs={'placeholder' : 'مقطع تحصیلی'}))
     detail = forms.CharField(max_length=1000,required=False,widget=forms.TextInput(attrs={'placeholder' : 'مقطع تحصیلی'}))
 
-    teahcer = forms.ModelChoiceField(queryset=Teacher.objects.all())
+    #teahcer = forms.ModelChoiceField(queryset=Teacher.objects.all())
+    #lesson = forms.ModelChoiceField(queryset=Lesson.objects.all())
 
     class Meta:
         model=Register_student
-        fields = ('code','imgfile','first_name','last_name','father_name','national_code','mail','born','end_ejuction','address','phone','mobile','school','school_time',
-                  'father_ejuction','father_work','father_phone','mother_ejuction','mother_work','mother_phone',
-                  'physical_illness','physical_illness_medicine','mental_illness','mental_illness_medicine','detail','teacher',)
+        fields = "__all__"
 
 class financialform(forms.ModelForm):
     last_name = forms.CharField(max_length=50)

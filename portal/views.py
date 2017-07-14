@@ -25,7 +25,7 @@ def teacherview(request):
         form = teacherform(request.POST,request.FILES)
         if form.is_valid():
             form.save(commit=True)
-            return render(request,'portal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
+            return render(request,'kkkportal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
         else:
             print form.errors
     else:
@@ -101,6 +101,20 @@ def lesson_all(request):
     else:
         form = Lessonform()
     return render(request,'portal/lesson_all.html',{'lesson':lesson,'form':form})
+
+
+def lesson_edit(request,pk):
+    lesson = get_object_or_404(Lesson,pk=pk)
+    if request.method=="POST":
+        form = Lessonform(request.POST,instance=lesson)
+        if form.is_valid():
+            form.save(commit=False)
+            return lesson_all(request)
+        else:
+            print form.errors
+    else:
+        lesson = Lessonform(instance=lesson)
+    return render(request,'portal/lesson_edit.html',{'lesson':lesson})
 
 #dont used this project
 def financial(request):

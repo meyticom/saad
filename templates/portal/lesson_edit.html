@@ -1,0 +1,23 @@
+{% extends 'base_panel.html' %}
+
+
+        {% block title %}
+            <title>مدیریت کلاس</title>
+        {% endblock %}
+
+{% block add %}
+    <div class="row " style="margin:0 auto; !important">
+       <form id="contactform" class="form-horizontal" method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+           <div class="col-lg-12 col-md-10 col-sm-8 col-xs-8 " data-toggle="validator" role="form">
+               <span>مشخصات کلاس درس</span>
+            {{ lesson.name }}
+            {{ lesson.number }}
+            {{ lesson.teacher }}
+            {{ lesson.time }}
+            {{ lesson.date }}
+            <button id="send" type="submit" class="btn btn-success">ارسال</button>
+            </div>
+       </form>
+    </div>
+{% endblock %}
