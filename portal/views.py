@@ -59,7 +59,7 @@ def add_student(request):
     elif (jdate.jd_to_persian(jd)[1]) == '09' or '08' or '07' :
         month='4'
     else:month='1'
-    final = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(code.code[3:7])+1)[1:]
+    student_code = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(code.code[3:7])+1)[1:]
     studentforms = Register_student.objects.all()
     if request.method =='POST':
         form = studentfrom(request.POST, request.FILES)
@@ -78,7 +78,7 @@ def add_student(request):
             print form.errors
     else:
         form = studentfrom()
-    return render(request,'portal _ new/student form.html', {'form':form , 'studentforms': studentforms,'final':final})
+    return render(request,'portal _ new/student form.html', {'form':form , 'studentforms': studentforms,'student_code':student_code})
 
 
 def student_edit(request, pk):
