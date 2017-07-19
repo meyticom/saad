@@ -1,8 +1,9 @@
 {% extends 'Base.html' %}
 {% block title %}
-<title>فرم دانش آموزان</title>
+<title>ویرایش دانش آموز</title>
 {% endblock %}
 
+{% block main %}
     <div style="direction: rtl" id="content">
 
         <div id="contentHeader">
@@ -15,8 +16,8 @@
 
             <div class="grid-16">
 
-                <form class="form uniformForm">
-
+                <form class="form uniformForm" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
                     <div class="widget">
 
                         <div class="widget-header">
@@ -29,12 +30,20 @@
                         <div class="widget-content">
 
                             <div class="field-group">
+                                <label for="fname">کد صاد</label>
+
+                                <div class="field">
+                                    {{ student.code }}
+
+                                </div>
+
                                 <label for="fname">نام</label>
 
                                 <div class="field">
                                     {{ student.first_name }}
 
                                 </div>
+
                                 <label for="lname">نام خانوادگی</label>
 
                                 <div class="field">
@@ -50,14 +59,7 @@
                                 <label for="cell">همراه</label>
 
                                 <div class="field">
-                                    <input type="text" name="phone1" id="cell" tabindex=4 size="8"/>
-
-                                </div>
-
-
-                                <div class="field">
-                                    <input type="text" name="phone3" id="cell" tabindex=3 size="4"/>
-
+                                   {{ student.mobile }}
                                 </div>
                             </div>
                             <!-- .field-group -->
@@ -77,13 +79,21 @@
                                 <label for="email">ایمیل</label>
 
                                 <div class="field">
-                                    <input type="text" name="lname" tabindex=6 id="email" size="22" class=""/>
-
+                                    {{ student.mail }}
                                 </div>
 
                             </div>
                             <!-- .field-group -->
 
+                            <div class="field-group">
+                                <label for="email">تاریخ تولد</label>
+                                <div class="field">
+                                    {{ student.born }}
+                                </div>
+
+                            </div>
+
+                            <!-- .field-group -->
                             <div class="field-group">
                                 <label for="fatname">نام پدر</label>
 
@@ -98,7 +108,7 @@
 
                                 <div class="field">
 
-                                    <input type="text" tabindex=8 id="school" name="" size="10" class=""/>
+                                    {{ student.school }}
 
                                 </div>
                             </div>
@@ -107,7 +117,7 @@
 
                                 <div class="field">
 
-                                    <input type="text" name="" id="shift" tabindex=9 size="15" class=""/>
+                                    {{ student.school_time }}
 
                                 </div>
                             </div>
@@ -115,7 +125,7 @@
                                 <label for="address">آدرس</label>
 
                                 <div class="field">
-                                    <textarea name="" tabindex=10 id="address" rows="2" cols="50"></textarea>
+                                    {{ student.address }}
                                 </div>
                             </div>
                             <!-- .field-group -->
@@ -123,12 +133,7 @@
                                 <label for="homep">تلفن منزل</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=12 id="homep" name="phone3" size="7"/>
-
-                                </div>
-
-                                <div class="field">
-                                    <input type="text" tabindex=11 id="homep"  name="phone1" size="3"/>
+                                    {{ student.phone }}
 
                                 </div>
 
@@ -136,39 +141,16 @@
                             <!-- .field-group -->
                             <div class="field-group">
                                 <label for="educ">میزان تحصیلات</label>
-
-                                <div class="field">
-                                    <select tabindex=13  name="cardtype" id="educ">
-                                        <option selected> دکتری</option>
-                                        <option>فوق لیسانس</option>
-                                        <option>لیسانس</option>
-                                        <option>فوق دیپلم</option>
-                                        <option>دیپلم</option>
-                                        <option>یازدهم</option>
-                                        <option>دهم</option>
-                                        <option>نهم</option>
-                                        <option>هشتم</option>
-                                        <option>هفتم</option>
-                                        <option>ششم</option>
-                                        <option>پنجم</option>
-                                        <option>چهارم</option>
-                                        <option>سوم</option>
-                                        <option>دوم</option>
-                                        <option>یکم</option>
-                                        <option>پیش دبستانی</option>
-                                        <option>عدم آغاز تحصیل</option>
-                                    </select>
-
-                                </div>
+                                    {{ student.end_ejuction }}
                             </div>
                             <!-- .field-group -->
 
 
                             <div class="field-group inlineField">
                                 <label for="myfile">تصویر دانش آموز</label>
-
+                                {{ f }}
                                 <div class="field">
-                                    <input tabindex=14 type="file" name="myfile" id="myfile"/>
+                                    {{ student.imgfile }}
                                 </div>
                             </div>
 
@@ -176,11 +158,6 @@
 
                     </div>
                     <!-- .widget -->
-
-                </form>
-
-
-                <form class="form uniformForm">
 
                     <div class="widget">
 
@@ -197,23 +174,29 @@
                                 <label for="jill">بیماری جسمی </label>
 
                                 <div class="field">
-                                    <input type="text" name="lname" tabindex=15 size="12" id="jill" class=""/>
-
+                                    {{ student.physical_illness }}
                                 </div>
                                 <div class="field-group">
                                     <label for="medd">داروی مصرفی </label>
 
                                     <div class="field">
-                                        <input type="text" tabindex=16 name="lname" id="medd" size="12" class=""/>
-
+                                        {{ student.physical_illness_medicine}}
                                     </div>
 
                                     <div class="field-group">
                                         <label for="rill">بیماری روحی روانی</label>
 
                                         <div class="field">
-                                            <input type="text" tabindex=17 name="lname" id="rill" size="12" class=""/>
+                                            {{ student.mental_illness }}
 
+                                        </div>
+                                    </div>
+
+                                    <div class="field-group">
+                                        <label for="rill">داروی مصرفی</label>
+
+                                        <div class="field">
+                                            {{ student.mental_illness_medicine }}
 
                                         </div>
                                     </div>
@@ -221,7 +204,7 @@
                                         <label for="descr">شرح حال</label>
 
                                         <div class="field">
-                                            <textarea name="message" tabindex=18 id="descr" rows="5" cols="50"></textarea>
+                                            {{ student.detail }}
                                         </div>
                                     </div>
                                     <!-- .field-group -->
@@ -233,8 +216,6 @@
                             </div>
                         </div>
                     </div>
-                </form>
-                <form class="form uniformForm">
 
                     <div class="widget">
 
@@ -251,7 +232,7 @@
                                 <label for="fatph">همراه پدر</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=19 name="lname" id="fatph" size="11" class=""/>
+                                    {{ student.father_phone }}
 
                                 </div>
 
@@ -262,7 +243,7 @@
                                 <label for="motph">همراه مادر</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=20 name="phone1" id="motph" size="11"/>
+                                    {{ student.mother_phone }}
 
                                 </div>
 
@@ -274,14 +255,7 @@
 
                                 <div class="field-group">
                                     <label for="fatedu">میزان تحصیلات پدر</label>
-                                    <select  tabindex=21 id="fatedu">
-                                        <option selected>زیر دیپلم</option>
-                                        <option> دیپلم</option>
-                                        <option>لیسانس</option>
-                                        <option>فوق لیسانس</option>
-                                        <option>دکتری</option>
-                                    </select>
-
+                                    {{ student.father_ejuction }}
                                 </div>
                             </div>
                             <!-- .field-group -->
@@ -291,14 +265,7 @@
 
                                 <div class="field-group">
                                     <label for="motedu" >میزان تحصیلات مادر</label>
-                                    <select tabindex=22 id="motedu">
-                                        <option selected>زیر دیپلم</option>
-                                        <option> دیپلم</option>
-                                        <option>لیسانس</option>
-                                        <option>فوق لیسانس</option>
-                                        <option>دکتری</option>
-                                    </select>
-
+                                    {{ student.mother_ejuction }}
                                 </div>
                             </div>
                             <!-- .field-group -->
@@ -313,9 +280,7 @@
 
                     </div>
                     <!-- .widget -->
-
                 </form>
-
             </div>
             <!-- .grid -->
 
@@ -341,42 +306,12 @@
                     </ul>
                 </div>
                 <!-- .box -->
-
             </div>
             <!-- .grid -->
 
         </div>
         <!-- .container -->
-
-
     </div>
-    <!-- #content -->
+<!-- #content -->
 
-
-</div>
-
-
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/handler.js"></script>
-
-
-<script>
-    $('#send').hide();
-</script>
-<script src="js/all.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $('[data-toggle="popover"]').popover();
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-</script>
-
-
-</body>
-</html>
+{% endblock %}

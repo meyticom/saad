@@ -81,19 +81,19 @@ def add_student(request):
     return render(request,'portal _ new/student form.html', {'form':form , 'studentforms': studentforms,'student_code':student_code})
 
 
-def student_edit(request, pk):
+def edit_student(request, pk):
     student = get_object_or_404(Register_student, pk=pk)
     if request.method == "POST":
         form = studentfrom(request.POST,request.FILES,instance=student)
         if form.is_valid():
-            student = form.save(commit=False)
+            student = form.save(commit=True)
             student.save()
             return redirect('all_student')
+        else:
+            print form.errors
     else:
         student = studentfrom(instance=student)
-    return render(request, 'portal/student_edit.html', {'student': student})
-
-
+    return render(request, 'portal _ new/edit student.html', {'student': student})
 ###################################End of register and edit student ####################################################
 
 
