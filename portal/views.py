@@ -13,13 +13,13 @@ def edit_teacher(request,pk):
         if form.is_valid():
             teacher = form.save(commit=False)
             teacher.save()
-            return redirect('teacherview')
+            return redirect(view_teacher)
     else:
         teacher = teacherform(instance=teacher)
     return render(request,'portal _ new/edit teacher.html',{'teacher':teacher})
 
 
-def teacherview(request):
+def view_teacher(request):
     teacherforms = Teacher.objects.all()
     return render(request,'portal _ new/teacher table.html', {'teacherforms': teacherforms})
 
@@ -29,7 +29,7 @@ def add_teacher(request):
         form = teacherform(request.POST,request.FILES)
         if form.is_valid():
             form.save(commit=True)
-            return redirect('teacherview')
+            return redirect(view_teacher)
         else:
             print form.errors
     else:
@@ -73,7 +73,7 @@ def add_student(request):
             #urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from=100020400&{0}".format(urllib.urlencode(mother)))
             end_student = Register_student.objects.all()[1:]
             all_student = Register_student.objects.all().reverse()
-            return redirect('all_student')
+            return redirect(all_student)
         else:
             print form.errors
     else:
@@ -88,12 +88,19 @@ def edit_student(request, pk):
         if form.is_valid():
             student = form.save(commit=True)
             student.save()
-            return redirect('all_student')
+            return redirect(all_student)
         else:
             print form.errors
     else:
         student = studentfrom(instance=student)
     return render(request, 'portal _ new/edit student.html', {'student': student})
+
+
+def all_student(request):
+    all = Register_student.objects.all()
+    return render(request,'portal _ new/student table.html',{'all':all})
+
+
 ###################################End of register and edit student ####################################################
 
 
@@ -113,7 +120,7 @@ def add_lesson(request):
         form = Lessonform(request.POST,request.FILES)
         if form.is_valid():
             form.save(commit=True)
-            return redirect('lesson_list')
+            return redirect(lesson_list)
         else:
             print form.errors
     else:
@@ -128,7 +135,7 @@ def lesson_edit(request,pk):
         if form.is_valid():
             lesson = form.save(commit=False)
             lesson.save()
-            return redirect('lesson_list')
+            return redirect(lesson_list)
         else:
             print form.errors
     else:
@@ -136,11 +143,6 @@ def lesson_edit(request,pk):
     return render(request,'portal _ new/edit lesson.html',{'lesson':lesson})
 ################################### End of register and edit lesson ####################################################
 
-
-
-def all_student(request):
-    all = Register_student.objects.all()
-    return render(request,'portal _ new/student table.html',{'all':all})
 
 
 

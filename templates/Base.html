@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'new/css/bootstrap.min.css' %}">
     <!--<link rel="stylesheet" href="css/bootstrap-rtl.css">-->
-    <link rel="stylesheet" href="{% static 'new/css/all.css '%}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'new/css/all.css'%}" type="text/css"/>
     <link rel="stylesheet" href="{%static 'new/css/style.css' %}">
 {% block title %}
     <title>صاد</title>
@@ -41,11 +41,11 @@
 
             <li id="navPages" class="nav">
                 <span class="icon-document-alt-stroke"></span>
-                <a href="javascript:;">فرم ثبت نام دانش آموزان </a>
+                <a href="javascript:;">دانش آموزان </a>
 
                 <ul class="subNav">
-                    <li><a href="">قرآن آموز </a></li>
-                    <li><a href="">زبان انگلیسی سطح 1</a></li>
+                    <li><a href="{% url 'add_student' %}">ثبت قرآن آموز</a></li>
+                    <li><a href="{% url 'students' %}">لیست تمامی افراد</a></li>
                     <li><a href="">زبان انگلیسی سطح 2</a></li>
                     <li><a href="">رباتیک</a></li>
 
@@ -69,13 +69,11 @@
 
          <li id="navPages " class="nav">
                 <span class="icon-document-alt-stroke"></span>
-                <a href="javascript:;">فرم های ثبت نام مربیان </a>
+                <a href="javascript:;"> مربیان</a>
 
                 <ul class="subNav">
-                    <li><a href="">دروس قرآن </a></li>
-                    <li><a href="">زبان انگلیسی سطح 1</a></li>
-                    <li><a href="">زبان انگلیسی سطح 2</a></li>
-                    <li><a href="">رباتیک</a></li>
+                    <li><a href="{% url 'add_teacher' %}">فرم ثبت نام مربی </a></li>
+                    <li><a href="{% url 'teachers' %}">نمایش تمامی مربیان</a></li>
 
                 </ul>
 
@@ -83,11 +81,11 @@
 
             <li id="navForms " class="nav">
                 <span class="icon-article"></span>
-                <a href="javascript:;">لیست مربیان </a>
+                <a href="javascript:;">کلاس </a>
 
                 <ul class="subNav">
-                    <li><a href="">دروس قرآن </a></li>
-                    <li><a href=""> زبان انگلیسی</a></li>
+                    <li><a href="{% url 'add_lesson' %}">ثبت کلاس </a></li>
+                    <li><a href="{% url 'lessons'%}"> نمایش تمام کلاس ها</a></li>
                     <li><a href=""> رباتیک</a></li>
                 </ul>
 
