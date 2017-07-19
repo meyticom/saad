@@ -1,0 +1,138 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>تنظیمات</title>
+{% endblock %}
+
+{% block main %}
+    <div style="direction: rtl" id="content">
+
+        <div id="contentHeader">
+            <h1>بخش تنظیمات پرتال</h1>
+        </div> <!-- #contentHeader -->
+
+        <div class="container">
+
+
+            <div class="grid-16">
+
+                <form class="form uniformForm" action="/setting/" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="widget">
+
+                        <div class="widget-header">
+                            <span class="icon-article"></span>
+                            <h3>تنظیمات سامانه پیامک</h3>
+                        </div> <!-- .widget-header -->
+
+                        <div class="widget-content">
+
+                            <div class="field-group">
+                                <label for="fname">شماره پیامک</label>
+                                <div class="field">
+                                    {{ form.sms_number }}
+
+                                </div>
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="lname">نام کاربری سامانه </label>
+                                <div class="field">
+                                    {{ form.sms_username }}
+
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="cell">رمز عبور سامانه</label>
+                                <div class="field">
+                                    {{ form.sms_password }}
+
+                                </div>
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="nacode">پیام ارسالی به پدر دانش آموزان</label>
+
+                                <div class="field">
+                                    {{ form.father_message_sms }}
+
+                                </div>
+
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="address">پیام ارسالی به مادر دانش آموزان</label>
+
+                                <div class="field">
+                                    {{ form.mother_message_sms }}
+                                </div>
+                            </div> <!-- .field-group -->
+
+
+                            <div class="field-group">
+                                <label for="email">پیام ارسالی به دانش آموزان</label>
+                                <div class="field">
+                                    {{ form.student_message_sms }}
+                                </div>
+                            </div> <!-- .field-group -->
+
+
+                            <div class="field-group inlineField">
+                                <label for="myfile">شماره صاد</label>
+
+                                <div class="field">
+                                    {{ form.student_first_code }}
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <button tabindex=11 class="btn-green btn-large"> تایید</button>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- .widget -->
+
+                </form>
+
+            </div> <!-- .grid -->
+
+            <div style="direction: rtl" class="grid-7">
+
+
+                <div class="box">
+                    <h3>مواردی که باید بدانید</h3>
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    </ul>
+
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+
+                    </ul>
+                </div> <!-- .box -->
+
+            </div> <!-- .grid -->
+
+        </div> <!-- .container -->
+
+
+    </div> <!-- #content -->
+
+
+
+{% endblock %}
+
+
+
+

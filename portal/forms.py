@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django import forms
-from portal.models import Lesson, Register_student, Financial, Teacher
+from portal.models import Lesson, Register_student, Financial, Teacher, Setting
 
 
 
@@ -81,3 +81,8 @@ class financialform(forms.ModelForm):
     class Meta:
         model = Financial
         fields=('last_name','mablaghe_kol','takhfif','pardakht_avaliye')
+
+class settingform(forms.ModelForm):
+    class Meta:
+        model=Setting
+        fields='__all__'

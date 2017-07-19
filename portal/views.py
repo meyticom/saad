@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render,get_object_or_404,redirect
 import urllib
-from portal.models import Teacher,Lesson,Register_student
-from portal.forms import teacherform,studentfrom,Lessonform
+from portal.models import Teacher,Lesson,Register_student,Setting
+from portal.forms import teacherform,studentfrom,Lessonform,settingform
 import time,datetime,jdate
 ###################################Register and edit teacher ###########################################################
 def edit_teacher(request,pk):
@@ -46,7 +46,8 @@ def add_teacher(request):
 
 ###################################register and edit student ####################################################
 def add_student(request):
-    code = Register_student.objects.all().last()
+    student = Register_student.objects.all().last()
+    set = Setting.objects.all().last()
     time = str(datetime.datetime.now())
     year = time[0:4]
     month = time[5:7]
@@ -59,26 +60,38 @@ def add_student(request):
     elif (jdate.jd_to_persian(jd)[1]) == '09' or '08' or '07' :
         month='4'
     else:month='1'
-    student_code = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(code.code[3:7])+1)[1:]
+
+    try:
+        student_code = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(student.code[3:7])+1)[1:]
+    except:
+        student_code = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(set.student_first_code[3:7])+1)[1:]
     studentforms = Register_student.objects.all()
     if request.method =='POST':
         form = studentfrom(request.POST, request.FILES)
         if form.is_valid():
             data = form.cleaned_data
             form.save(commit=True)
-            father = {'to':'{0}'.format(data['father_phone'].encode('utf8')),'msg': 'گرانمایه ارجمند:آقای {0} پیوستن شما را به خانواده بزرگ صاد تبریک می گوییم '.format(data['last_name'].encode('utf8')),'uname':'meyticom','pass':'mme2700230'}
-            #urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from=100020400&{0}".format(urllib.urlencode(father)))
-            #time.sleep(2)
-            mother = {'to':'{0}'.format(data['mother_phone']),'msg': 'گرانمایه ارجمند:خانواده {0} پیوستن شما را به خانواده بزرگ صاد تبریک می گوییم '.format(data['last_name'].encode('utf8')),'uname':'meyticom','pass':'mme2700230'}
-            #urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from=100020400&{0}".format(urllib.urlencode(mother)))
-            end_student = Register_student.objects.all()[1:]
-            all_student = Register_student.objects.all().reverse()
-            return redirect(all_student)
+            if set.sms_username or set.sms_password or set.sms_number :
+                if set.father_message_sms and data['father_phone']:
+                    father = {'to':'{0}'.format(data['father_phone'].encode('utf8')),'msg': 'گرانمایه ارجمند:آقای {0} پیوستن شما را به خانواده بزرگ صاد تبریک می گوییم '.format(
+                        data['last_name'].encode('utf8')),'uname':'{0}'.format(set.sms_username),'pass':'{0}'.format(set.sms_password)}
+                    urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from={0}&{1}".format(set.sms_number, urllib.urlencode(father)))
+                elif set.mother_message_sms and data['mother_phone']:
+                    mother = {'to': '{0}'.format(data['mother_phone']),
+                              'msg': 'گرانمایه ارجمند:خانواده {0} پیوستن شما را به خانواده بزرگ صاد تبریک می گوییم '.format(
+                                  data['last_name'].encode('utf8')), 'uname': 'meyticom', 'pass': 'mme2700230'}
+                    urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from={0}&{1}".format(set.sms_number, urllib.urlencode(mother)))
+                elif set.student_message_sms and data['mobile']:
+                    mother = {'to': '{0}'.format(data['mobile']),
+                              'msg': 'گرانمایه ارجمند:{0} عزیز پیوستن شما را به خانواده بزرگ صاد تبریک می گوییم '.format(
+                                  data['first_name'].encode('utf8')),'uname':'{0}'.format(set.sms_username),'pass':'{0}'.format(set.sms_password)}
+                    urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from=100020400&{0}".format(urllib.urlencode(mother)))
+            return redirect('all_student')
         else:
             print form.errors
     else:
         form = studentfrom()
-    return render(request,'portal _ new/student form.html', {'form':form , 'studentforms': studentforms,'student_code':student_code})
+    return render(request,'portal _ new/student form.html', {'form':form , 'studentforms': studentforms,'student_code':student_code,'setting':setting})
 
 
 def edit_student(request, pk):
@@ -149,6 +162,25 @@ def lesson_edit(request,pk):
 def paa(request):
     render(request,'student/index.html',{})
 
+
+def setting(reqest):
+    bb = Setting.objects.all().last()
+    if bb.sms_number :
+        print bb.sms_number
+    else:
+        print("nothing")
+    data = Setting.objects.all().first()
+    if reqest.method == "POST":
+        form = settingform(reqest.POST,instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect(setting)
+        else:
+            print form.errors
+    else:
+        form = settingform(instance=data)
+
+    return render(reqest,'portal _ new/setting.html',{'form':form})
 
 
 

@@ -75,3 +75,16 @@ class Financial(models.Model):
     pardakht_avaliye = models.IntegerField(null=True)
     def __unicode__(self):
         return self.mablaghe_kol
+
+
+
+class Setting(models.Model):
+    sms_number = models.IntegerField(blank=True,null=True)
+    sms_username = models.CharField(max_length=20,blank=True)
+    sms_password = models.CharField(max_length=20,blank=True)
+    father_message_sms = models.CharField(max_length=200,blank=True)
+    mother_message_sms = models.CharField(max_length=200,blank=True)
+    student_message_sms = models.CharField(max_length=200,blank=True)
+
+
+    student_first_code = models.CharField(max_length=20,blank=False)
