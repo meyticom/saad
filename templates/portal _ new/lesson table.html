@@ -1,0 +1,79 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>جدول دروس</title>
+{% endblock %}
+
+
+
+
+
+{% block main %}
+    <div id="content">
+
+        <div id="contentHeader">
+            <h1>دروس  </h1>
+        </div> <!-- #contentHeader -->
+
+        <div class="container">
+
+            <div style="direction: rtl" class="grid-24">
+
+                <div class="widget widget-table">
+
+                    <div class="widget-header">
+                        <span class="icon-list"></span>
+                        <h3 class="icon chart">لیست دروس</h3>
+                    </div>
+
+                    <div class="widget-content">
+
+                        <table class="table table-bordered table-striped data-table">
+                            <thead>
+                            <tr>
+                                <th>نام</th>
+                                <th>شماره کلاس</th>
+                                <th>نام مربی</th>
+                                <th>ساعت کلاس </th>
+                                <th>روز کلاس </th>
+                                <th>ویرایش/حذف</th>
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if lesson %}
+                                {% for UserProfile in lesson %}
+                                    <tr class="gradeA">
+
+                                        <td>{{ UserProfile.name }} </td>
+                                        <td>{{ UserProfile.number }}</td>
+                                        <td>{{ UserProfile.teacher }}    </td>
+                                        <td>{{ UserProfile.time }}    </td>
+                                        <td>{{ UserProfile.date }}     </td>
+                                        <td>
+                                            <ul class="nav">
+                                                <li><a class="btn btn-group-xs btn-primary" href="/elesson/{{ UserProfile.pk }}" role="button">ویرایش</a></li>
+                                                <li><a class="btn btn-group-xs btn-error" href="" role="button">ویرایش</a></li>
+
+                                            </ul>
+
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+
+                        </table>
+
+                    </div> <!-- .widget-content -->
+
+                </div> <!-- .widget -->
+
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

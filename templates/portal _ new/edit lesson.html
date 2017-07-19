@@ -1,0 +1,128 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>فرم اضافه کردن درس</title>
+{% endblock %}
+
+{% block main %}
+    <div style="direction: rtl" id="content">
+
+        <div id="contentHeader">
+            <h1>مشخصات دروس</h1>
+        </div> <!-- #contentHeader -->
+
+        <div class="container">
+
+
+            <div class="grid-16">
+
+                <form class="form uniformForm" action="" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="widget">
+
+                        <div class="widget-header">
+                            <span class="icon-article"></span>
+                            <h3>مشخصات درس</h3>
+                        </div> <!-- .widget-header -->
+
+                        <div class="widget-content">
+
+                            <div class="field-group">
+                                <label for="fname"> نام کلاس</label>
+                                <div class="field">
+                                     {{ lesson.name }}
+
+                                </div>
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="lname">شماره کلاس </label>
+                                <div class="field">
+                                    {{ lesson.number }}
+
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="cell">ساعت کلاس </label>
+                                <div class="field">
+                                     {{ lesson.time }}
+
+                                </div>
+
+
+
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="nacode">روز کلاس </label>
+
+                                <div class="field">
+                                   {{ lesson.date }}
+
+                                </div>
+
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="address">نام مربی</label>
+
+                                <div class="field">
+                                    {{ lesson.teacher }}
+                                </div>
+                            </div> <!-- .field-group -->
+
+
+                            <div class="field-group">
+                                <button tabindex=7 class="btn-green btn-large"> تایید</button>
+
+                            </div>
+
+                        </div>
+
+
+                    </div> <!-- .widget -->
+
+
+                </form>
+
+
+            </div> <!-- .grid -->
+
+            <div style="direction: rtl" class="grid-7">
+
+
+                <div class="box">
+                    <h3>مواردی که باید بدانید</h3>
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    </ul>
+
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+
+                    </ul>
+                </div> <!-- .box -->
+
+            </div> <!-- .grid -->
+
+        </div> <!-- .container -->
+
+
+    </div> <!-- #content -->
+
+
+
+{% endblock %}
+
+
+
+

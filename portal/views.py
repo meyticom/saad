@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render,get_object_or_404,redirect
 import urllib
-from portal.models import *
-from portal.forms import *
+from portal.models import Teacher,Lesson,Register_student
+from portal.forms import teacherform,studentfrom,Lessonform
 import time,datetime,jdate
-
-def teacher_edit(request,pk):
+###################################Register and edit teacher ###########################################################
+def edit_teacher(request,pk):
     teacher = get_object_or_404(Teacher,pk=pk)
     if request.method=="POST":
         form = teacherform(request.POST,request.FILES,instance=teacher)
@@ -16,23 +16,35 @@ def teacher_edit(request,pk):
             return redirect('teacherview')
     else:
         teacher = teacherform(instance=teacher)
-    return render(request,'portal/teacher_edit.html',{'teacher':teacher})
+    return render(request,'portal _ new/edit teacher.html',{'teacher':teacher})
 
 
 def teacherview(request):
     teacherforms = Teacher.objects.all()
+    return render(request,'portal _ new/teacher table.html', {'teacherforms': teacherforms})
+
+
+def add_teacher(request):
     if request.method =='POST':
         form = teacherform(request.POST,request.FILES)
         if form.is_valid():
             form.save(commit=True)
-            return render(request,'kkkportal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
+            return redirect('teacherview')
         else:
             print form.errors
     else:
         form = teacherform()
-    return render(request,'portal/add_teacher.html', {'form':form , 'teacherforms': teacherforms})
+    return render(request,'portal _ new/teacher form.html', {'form':form })
+
+###################################End of register and edit teacher ####################################################
 
 
+
+
+
+
+
+###################################register and edit student ####################################################
 def add_student(request):
     code = Register_student.objects.all().last()
     time = str(datetime.datetime.now())
@@ -61,46 +73,52 @@ def add_student(request):
             #urllib.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from=100020400&{0}".format(urllib.urlencode(mother)))
             end_student = Register_student.objects.all()[1:]
             all_student = Register_student.objects.all().reverse()
-            return render(request,'portal/end.html',{'end_student':end_student,'all_student':all_student})
+            return redirect('all_student')
         else:
             print form.errors
     else:
         form = studentfrom()
-    return render(request,'portal/register.html', {'form':form , 'studentforms': studentforms,'final':final})
-
-def all_student(request):
-    all = Register_student.objects.all()
-    return render(request,'portal/student.html',{'all':all})
+    return render(request,'portal _ new/student form.html', {'form':form , 'studentforms': studentforms,'final':final})
 
 
-
-
-def student_detail(request, pk):
+def student_edit(request, pk):
     student = get_object_or_404(Register_student, pk=pk)
     if request.method == "POST":
         form = studentfrom(request.POST,request.FILES,instance=student)
         if form.is_valid():
             student = form.save(commit=False)
             student.save()
-            #return redirect('all_student')
-            return paa(request)
+            return redirect('all_student')
     else:
         student = studentfrom(instance=student)
-    return render(request, 'portal/student_detail.html', {'student': student})
+    return render(request, 'portal/student_edit.html', {'student': student})
 
 
-def lesson_all(request):
+###################################End of register and edit student ####################################################
+
+
+
+
+
+
+
+
+################################### register and edit lesson ####################################################
+def lesson_list(request):
     lesson = Lesson.objects.all()
-    if request.method=="POST":
-        form = Lessonform(request.POST)
+    return render(request,'portal _ new/lesson table.html',{'lesson':lesson})
+
+def add_lesson(request):
+    if request.method =='POST':
+        form = Lessonform(request.POST,request.FILES)
         if form.is_valid():
             form.save(commit=True)
-            return redirect('lesson_all')
+            return redirect('lesson_list')
         else:
             print form.errors
     else:
         form = Lessonform()
-    return render(request,'portal/lesson_all.html',{'lesson':lesson,'form':form})
+    return render(request,'portal _ new/lesson form.html', {'form':form })
 
 
 def lesson_edit(request,pk):
@@ -110,26 +128,25 @@ def lesson_edit(request,pk):
         if form.is_valid():
             lesson = form.save(commit=False)
             lesson.save()
-            return redirect('lesson_all')
+            return redirect('lesson_list')
         else:
             print form.errors
     else:
         lesson = Lessonform(instance=lesson)
-    return render(request,'portal/lesson_edit.html',{'lesson':lesson})
+    return render(request,'portal _ new/edit lesson.html',{'lesson':lesson})
+################################### End of register and edit lesson ####################################################
 
-#dont used this project
-def financial(request):
-#    studentforms = Register_student.objects.all()
-    if request.method =='POST':
-        form = financialform(request.POST)
-        if form.is_valid():
-            form.save(commit=True)
-            return all_student(request)
-        else:
-            print form.errors
-    else:
-        form = financialform()
-    return render(request,'portal/financial.html',{})
+
+
+def all_student(request):
+    all = Register_student.objects.all()
+    return render(request,'portal _ new/student table.html',{'all':all})
+
+
 
 def paa(request):
     render(request,'student/index.html',{})
+
+
+
+

@@ -69,7 +69,9 @@ class studentfrom(forms.ModelForm):
 
     class Meta:
         model=Register_student
-        fields = "__all__"
+        fields =('code','imgfile','first_name','last_name','father_name','national_code','mail','born','address','phone','mobile','school','school_time',
+                 'father_work','father_phone','mother_work','mother_phone','physical_illness','physical_illness_medicine','mental_illness',
+                 'mental_illness_medicine','detail')
 
 class financialform(forms.ModelForm):
     last_name = forms.CharField(max_length=50)

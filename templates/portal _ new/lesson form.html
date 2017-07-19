@@ -1,0 +1,132 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>فرم اضافه کردن درس</title>
+{% endblock %}
+
+{% block main %}
+    <div style="direction: rtl" id="content">
+
+        <div id="contentHeader">
+            <h1>مشخصات دروس</h1>
+        </div> <!-- #contentHeader -->
+
+        <div class="container">
+
+
+            <div class="grid-16">
+
+                <form class="form uniformForm" action="/add_lesson/" method="post">
+                    {% csrf_token %}
+
+                    <div class="widget">
+
+                        <div class="widget-header">
+                            <span class="icon-article"></span>
+                            <h3>مشخصات درس</h3>
+                        </div> <!-- .widget-header -->
+
+                        <div class="widget-content">
+
+                            <div class="field-group">
+                                <label for="name"> نام کلاس</label>
+                                <div class="field">
+                                    <input name="name" tabindex=1 type="text"  id="name" size="12"
+                                           class=""/>
+
+                                </div>
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="number">شماره کلاس </label>
+                                <div class="field">
+                                    <input  name="number" tabindex=2 type="text"  size="10" id="number"
+                                           class=""/>
+
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="time">ساعت کلاس </label>
+                                <div class="field">
+                                    <input name="time" tabindex=4 type="text"  id="time" size="12"/>
+
+                                </div>
+
+
+
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="date">روز کلاس </label>
+
+                                <div class="field">
+                                    <input name="date" tabindex=5 type="text"  id="date" size="12"/>
+
+                                </div>
+
+
+                            </div> <!-- .field-group -->
+                               <div class="field-group">
+                                <label for="teacher">نام مربی </label>
+
+                                <div class="field">
+                                    {{ form.teacher }}
+
+                                </div>
+
+
+                            </div> <!-- .field-group -->
+
+
+                            <div class="field-group">
+                                <button tabindex=7 class="btn-green btn-large"> تایید</button>
+
+                            </div>
+
+                        </div>
+
+
+                    </div> <!-- .widget -->
+
+
+                </form>
+
+
+            </div> <!-- .grid -->
+
+            <div style="direction: rtl" class="grid-7">
+
+
+                <div class="box">
+                    <h3>مواردی که باید بدانید</h3>
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    </ul>
+
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+
+                    </ul>
+                </div> <!-- .box -->
+
+            </div> <!-- .grid -->
+
+        </div> <!-- .container -->
+
+
+    </div> <!-- #content -->
+
+
+
+{% endblock %}
+
+
+
+

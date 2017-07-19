@@ -1,0 +1,163 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>فرم مربیان</title>
+{% endblock %}
+
+{% block main %}
+    <div style="direction: rtl" id="content">
+
+        <div id="contentHeader">
+            <h1>مشخصات مربیان</h1>
+        </div> <!-- #contentHeader -->
+
+        <div class="container">
+
+
+            <div class="grid-16">
+
+                <form class="form uniformForm" action="/add_teacher/" method="post"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="widget">
+
+                        <div class="widget-header">
+                            <span class="icon-article"></span>
+                            <h3>مشخصات مربی</h3>
+                        </div> <!-- .widget-header -->
+
+                        <div class="widget-content">
+
+                            <div class="field-group">
+                                <label for="fname">نام</label>
+                                <div class="field">
+                                    <input name="first_name" tabindex=1 type="text"  id="fname" size="12"
+                                           class=""/>
+
+                                </div>
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="lname">نام خانوادگی </label>
+                                <div class="field">
+                                    <input  name="last_name" tabindex=2 type="text"  size="10" id="lname"
+                                           class=""/>
+
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label for="cell">همراه</label>
+                                <div class="field">
+                                    <input name="mobile" tabindex=4 type="text"  id="cell" size="12"/>
+
+                                </div>
+
+
+
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="nacode">کدملی</label>
+
+                                <div class="field">
+                                    <input name="national_code" tabindex=5 type="text"  id="nacode" size="12"/>
+
+                                </div>
+
+
+                            </div> <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="address">آدرس</label>
+
+                                <div class="field">
+                                    <textarea name="address"  tabindex=6 id="address" rows="1" cols="50"></textarea>
+                                </div>
+                            </div> <!-- .field-group -->
+
+
+                            <div class="field-group">
+                                <label for="email">Email</label>
+                                <div class="field">
+                                    <input type="text" tabindex=8 name="mail" id="email" size="22" class=""/>
+
+                                </div>
+
+
+                            </div> <!-- .field-group -->
+{#                            <div class="field-group">#}
+{#                                <label for="edu">میزان تحصیلات</label>#}
+{##}
+{#                                <div class="field">#}
+{#                                    <select tabindex=9 name="" id="edu">#}
+{#                                        <option>دیپلم</option>#}
+{#                                        <option>فوق دیپلم</option>#}
+{#                                        <option>لیسانس</option>#}
+{#                                        <option>فوق لیسانس</option>#}
+{#                                        <option>دکتری</option>#}
+{#                                    </select>#}
+{##}
+{#                                </div>#}
+{#                            </div> <!-- .field-group -->#}
+
+
+                            <div class="field-group inlineField">
+                                <label for="myfile">تصویر مربی</label>
+
+                                <div class="field">
+                                    <input type="file" tabindex=10 name="imgfile" id="myfile"/>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <button tabindex=11 class="btn-green btn-large"> تایید</button>
+
+                            </div>
+
+                        </div>
+
+
+                    </div> <!-- .widget -->
+
+
+                </form>
+
+
+            </div> <!-- .grid -->
+
+            <div style="direction: rtl" class="grid-7">
+
+
+                <div class="box">
+                    <h3>مواردی که باید بدانید</h3>
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    </ul>
+
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+
+                    </ul>
+                </div> <!-- .box -->
+
+            </div> <!-- .grid -->
+
+        </div> <!-- .container -->
+
+
+    </div> <!-- #content -->
+
+
+
+{% endblock %}
+
+
+
+

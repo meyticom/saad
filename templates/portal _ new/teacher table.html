@@ -1,0 +1,85 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>جدول مربیان</title>
+{% endblock %}
+
+
+
+
+
+{% block main %}
+    <div id="content">
+
+        <div id="contentHeader">
+            <h1>مربیان </h1>
+        </div> <!-- #contentHeader -->
+
+        <div class="container">
+
+            <div style="direction: rtl" class="grid-24">
+
+                <div class="widget widget-table">
+
+                    <div class="widget-header">
+                        <span class="icon-list"></span>
+                        <h3 class="icon chart">لیست مربیان</h3>
+                    </div>
+
+                    <div class="widget-content">
+
+                        <table class="table table-bordered table-striped data-table">
+                            <thead>
+                            <tr>
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>کد ملی</th>
+                                <th>آدرس</th>
+                                <th>موبایل</th>
+                                <th>ایمیل</th>
+                                <th>تصویر</th>
+                                <th>ویرایش/حذف</th>
+
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if teacherforms %}
+                                {% for UserProfile in teacherforms %}
+                                    <tr class="gradeA">
+
+                                        <td>{{ UserProfile.first_name }}</td>
+                                        <td>{{ UserProfile.last_name }}</td>
+                                        <td>{{ UserProfile.national_code }}    </td>
+                                        <td>{{ UserProfile.address }}    </td>
+                                        <td>{{ UserProfile.mobile }}    </td>
+                                        <td>{{ UserProfile.mail }}</td>
+                                        <td>{% if UserProfile.imgfile %}
+                                            <img class="img-responsive  img-circle" style="position: relative;top: 7px;right: 7px; width: 80px;height: 80px" src="{{ UserProfile.imgfile.url }} "
+                                                 >{% endif %}</td>
+                                        <td>
+                                            <ul class="nav">
+                                                <li><a  class="btn btn-group-xs btn-primary" href="/edit_teacher/{{ UserProfile.pk }}" role="button">ویرایش</a></li>
+                                                <li><a   class="btn btn-xs btn-error" href="" role="button">حذف</a></li>
+
+                                            </ul>
+
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+
+                        </table>
+
+                    </div> <!-- .widget-content -->
+
+                </div> <!-- .widget -->
+
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

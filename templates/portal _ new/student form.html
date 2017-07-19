@@ -1,0 +1,418 @@
+{% extends 'Base.html' %}
+{% block title %}
+<title>فرم دانش آموزان</title>
+{% endblock %}
+{% block main %}
+    <div style="direction: rtl" id="content">
+
+        <div id="contentHeader">
+            <h1> مشخصات فردی دانش آموز</h1>
+        </div>
+        <!-- #contentHeader -->
+
+        <div class="container">
+
+
+            <div class="grid-16">
+
+                <form action="/add_student/" class="form uniformForm" method="post">
+                    {% csrf_token %}
+
+                    <div class="widget">
+
+                        <div class="widget-header">
+                            <span class="icon-article"></span>
+
+                            <h3>مشخصات دانش آموز</h3>
+                        </div>
+                        <!-- .widget-header -->
+
+                        <div class="widget-content">
+                             <div class="field-group">
+                                <label for="code">شماره صاد</label>
+
+                                <div class="field">
+                                    <input  type="text" name="code" id="code" tabindex=1 size="12" value="{{ final }}"/>
+
+                                </div>
+
+
+
+                            </div>
+                            <!-- .field-group -->
+
+                            <div class="field-group">
+                                <label for="fname">نام</label>
+
+                                <div class="field">
+                                    <input type="text" name="first_name" size="2" tabindex=1 id="fname" class=""/>
+
+                                </div>
+                                <label for="lname">نام خانوادگی</label>
+
+                                <div class="field">
+                                    <input type="text" name="last_name" size="3" id="lname" tabindex=2 class=""/>
+
+                                </div>
+
+
+                            </div>
+                            <!-- .field-group -->
+
+                            <div class="field-group">
+                                <label for="cell">همراه</label>
+
+                                <div class="field">
+                                    <input type="text" name="mobile" id="cell" tabindex=4 size="12"/>
+
+                                </div>
+
+
+
+                            </div>
+                            <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="cell">تاریخ تولد</label>
+
+                                <div class="field">
+                                    <input type="text" name="born" id="cell" tabindex=5 size="12"/>
+
+                                </div>
+
+
+
+                            </div>
+                            <!-- .field-group -->
+
+                            <div class="field-group">
+                                <label for="nacode">کدملی</label>
+
+                                <div class="field">
+                                    <input type="text" name="national_code" id="nacode" tabindex=6 size="12"/>
+
+                                </div>
+
+
+                            </div>
+                            <!-- .field-group -->
+
+                            <div class="field-group">
+                                <label for="email">ایمیل</label>
+
+                                <div class="field">
+                                    <input type="text" name="mail" tabindex=7 id="email" size="22" class=""/>
+
+                                </div>
+
+                            </div>
+                            <!-- .field-group -->
+
+                            <div class="field-group">
+                                <label for="fatname">نام پدر</label>
+
+                                <div class="field">
+
+                                    <input type="text" name="father_name" tabindex=8 id="fatname" title="نام پدر" size="12" class=""/>
+
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <label for="school">مدرسه</label>
+
+                                <div class="field">
+
+                                    <input type="text" tabindex=9 id="school"name="school" size="10" class=""/>
+
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <label for="shift">شیفت</label>
+
+                                <div class="field">
+
+                                    <input type="text" name="school_time" id="shift" tabindex=10 size="15" class=""/>
+
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <label for="address">آدرس</label>
+
+                                <div class="field">
+                                    <textarea name="address" tabindex=11 id="address" rows="2" cols="50"></textarea>
+                                </div>
+                            </div>
+                            <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="homep">تلفن منزل</label>
+
+                                <div class="field">
+                                    <input name="phone" type="text" tabindex=12 id="homep"  size="12"/>
+
+                                </div>
+
+
+
+                            </div>
+                            <!-- .field-group -->
+{#                            <div class="field-group">#}
+
+{##}
+{#                                <div class="field">#}
+{#                                    <select tabindex=13  name="end_ejuction" id="educ">#}
+{#                                        <option selected> دکتری</option>#}
+{#                                        <option>فوق لیسانس</option>#}
+{#                                        <option>لیسانس</option>#}
+{#                                        <option>فوق دیپلم</option>#}
+{#                                        <option>دیپلم</option>#}
+{#                                        <option>یازدهم</option>#}
+{#                                        <option>دهم</option>#}
+{#                                        <option>نهم</option>#}
+{#                                        <option>هشتم</option>#}
+{#                                        <option>هفتم</option>#}
+{#                                        <option>ششم</option>#}
+{#                                        <option>پنجم</option>#}
+{#                                        <option>چهارم</option>#}
+{#                                        <option>سوم</option>#}
+{#                                        <option>دوم</option>#}
+{#                                        <option>یکم</option>#}
+{#                                        <option>پیش دبستانی</option>#}
+{#                                        <option>عدم آغاز تحصیل</option>#}
+{#                                    </select>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <!-- .field-group -->#}
+                             <div class="field-group">
+                            <label style="margin-bottom: " >میزان تحصیلات</label>
+                            {{ form.end_ejuction }}
+                             </div>
+                            <div class="field-group inlineField">
+                                <label style="margin-top: 11px" for="myfile">تصویر دانش آموز</label>
+
+                                <div class="field">
+                                    <input tabindex=14 type="file" name="imgfile" id="myfile"/>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- .widget -->
+
+
+
+
+
+
+                    <div class="widget">
+
+                        <div class="widget-header">
+                            <span class="icon-article"></span>
+
+                            <h3>وضعیت سلامتی</h3>
+                        </div>
+                        <!-- .widget-header -->
+
+                        <div class="widget-content">
+
+                            <div class="field-group">
+                                <label for="jill">بیماری جسمی </label>
+
+                                <div class="field">
+                                    <input type="text" name="physical_illness" tabindex=15 size="12" id="jill" class=""/>
+
+                                </div>
+                                <div class="field-group">
+                                    <label for="medd">داروی مصرفی </label>
+
+                                    <div class="field">
+                                        <input type="text" tabindex=16 name="physical_illness_medicine" id="medd" size="12" class=""/>
+
+                                    </div>
+
+                                    <div class="field-group">
+                                        <label for="rill">بیماری روحی روانی</label>
+
+                                        <div class="field">
+                                            <input type="text" tabindex=17 name="mental_illness" id="rill" size="12" class=""/>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="field-group">
+                                        <label for="rill">داروی مصرفی روانی</label>
+
+                                        <div class="field">
+                                            <input type="text" tabindex=18 name="mental_illness_medicine" id="rill" size="12" class=""/>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="field-group">
+                                        <label for="descr">شرح حال</label>
+
+                                        <div class="field">
+                                            <textarea name="detail" tabindex=19 id="descr" rows="5" cols="50"></textarea>
+                                        </div>
+                                    </div>
+                                    <!-- .field-group -->
+
+
+                                </div>
+                                <!-- .widget -->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="widget">
+
+                        <div class="widget-header">
+                            <span class="icon-article"></span>
+
+                            <h3>مشخصات اولیا</h3>
+                        </div>
+                        <!-- .widget-header -->
+
+                        <div class="widget-content">
+
+                            <div class="field-group">
+                                <label for="fatph">همراه پدر</label>
+
+                                <div class="field">
+                                    <input type="text" tabindex=20 name="father_phone" id="fatph" size="11" class=""/>
+
+                                </div>
+
+
+                            </div>
+                            <!-- .field-group -->
+                            <div class="field-group">
+                                <label for="motph">همراه مادر</label>
+
+                                <div class="field">
+                                    <input type="text" tabindex=21 name="mother_phone" id="motph" size="11"/>
+
+                                </div>
+
+
+                            </div>
+                            <!-- .field-group -->
+                                <div class="field-group">
+                                <label for="motph">شغل پدر</label>
+
+                                <div class="field">
+                                    <input type="text" tabindex=22 name="father_work" id="motph" size="11"/>
+
+                                </div>
+
+
+                            </div>
+                            <!-- .field-group -->
+
+                              <div class="field-group">
+                                <label for="motwo">شغل مادر</label>
+
+                                <div class="field">
+                                    <input type="text" tabindex=23 name="mother_work" id="motwo" size="10"/>
+
+                                </div>
+
+
+                            </div>
+                            <!-- .field-group -->
+{##}
+{#                            <div class="field-group">#}
+{##}
+{##}
+{#                                <div class="field-group">#}
+
+{#                                    <select   name="father_ejuction"  tabindex=24 id="fatedu">#}
+{#                                        <option selected>زیر دیپلم</option>#}
+{#                                        <option> دیپلم</option>#}
+{#                                        <option>لیسانس</option>#}
+{#                                        <option>فوق لیسانس</option>#}
+{#                                        <option>دکتری</option>#}
+{#                                    </select>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+                            <!-- .field-group -->
+                            <div class="field-group">
+                                <label style="margin-bottom: 1px" >میزان تحصیلات پدر</label>
+                            {{ form.father_ejuction }}
+                            </div>
+{#                            <div class="field-group">#}
+{##}
+{##}
+{#                                <div class="field-group">#}
+
+{#                                    <select name="mother_ejuction" tabindex=25 id="motedu">#}
+{#                                        <option selected>زیر دیپلم</option>#}
+{#                                        <option> دیپلم</option>#}
+{#                                        <option>لیسانس</option>#}
+{#                                        <option>فوق لیسانس</option>#}
+{#                                        <option>دکتری</option>#}
+{#                                    </select>#}
+{##}
+{#                                </div>#}
+{#                            </div>#}
+                            <!-- .field-group -->
+                            <div class="field-group">
+                            <label style="margin-top: 4px" >میزان تحصیلات مادر</label>
+                            {{ form.mother_ejuction }}
+                            </div>
+                            <div class="field-group">
+                                <button tabindex=26 class="btn-green btn-large"> تایید</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- .widget -->
+
+                </form>
+
+            </div>
+            <!-- .grid -->
+
+            <div style="direction: rtl" class="grid-7">
+
+
+                <div class="box">
+                    <h3>مواردی که باید بدانید</h3>
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    </ul>
+
+                    <ul>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+
+                    </ul>
+                </div>
+                <!-- .box -->
+
+            </div>
+            <!-- .grid -->
+
+        </div>
+        <!-- .container -->
+
+
+    </div>
+    <!-- #content -->
+
+
+{% endblock %}
+
+

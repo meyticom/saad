@@ -1,0 +1,181 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>جدول دانش آموزان</title>
+{% endblock %}
+
+{% block main %}
+    <!-- Modal -->
+    {% if all %}
+        {% for Userprofile in all %}
+
+            <div class="modal fade" id="{{ Userprofile.pk }}" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 dir="rtl" class="modal-title" id="myModalLabel">اطلاعات کامل دانش آموز</h4>
+                        </div>
+                        <div class="modal-body">
+
+
+
+
+                            <div dir="rtl" >
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-success">بیماری جسمانی
+                                        : {{ Userprofile.physical_illness }} </li>
+                                    <li class="list-group-item list-group-item-info">داروی مصرفی
+                                        : {{ Userprofile.physical_illness_medicine }} </li>
+                                    <li class="list-group-item list-group-item-warning"> بیماری روحی و روانی
+                                        : {{ Userprofile.mental_illness }}</li>
+                                    <li class="list-group-item list-group-item-danger">داروی مصرفی
+                                        : {{ Userprofile.mental_illness_medicine }}</li>
+                                    <li class="list-group-item list-group-item-success"> شرح حال
+                                        : {{ Userprofile.detail }}</li>
+                                </ul>
+                            </div>
+                            <div style=" " dir="rtl">
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-info">همراه پدر
+                                        : {{ Userprofile.father_phone }} </li>
+                                    <li class="list-group-item list-group-item-warning"> همراه مادر
+                                        : {{ Userprofile.mother_phone }}</li>
+                                    <li class="list-group-item list-group-item-danger">شغل پدر
+                                        : {{ Userprofile.father_work }}</li>
+                                    <li class="list-group-item list-group-item-success"> شغل مادر
+                                        : {{ Userprofile.mother_work }}</li>
+                                    <li class="list-group-item list-group-item-info">تحصیلات پدر
+                                        : {{ Userprofile.father_ejuction }} </li>
+                                    <li class="list-group-item list-group-item-success">تحصیلات مادر
+                                        : {{ Userprofile.mother_ejuction }} </li>
+                                </ul>
+                            </div>
+                              <div dir="rtl" style="">
+                                <ul class="list-group">
+                                    <li class="list-group-item list-group-item-success">کد
+                                        : {{ Userprofile.first_name }} </li>
+                                    <li class="list-group-item list-group-item-info">نام
+                                        : {{ Userprofile.first_name }} </li>
+                                    <li class="list-group-item list-group-item-warning"> نام خانوادگی
+                                        : {{ Userprofile.last_name }}</li>
+                                    <li class="list-group-item list-group-item-danger">تلفن همراه
+                                        : {{ Userprofile.mobile }}</li>
+                                    <li class="list-group-item list-group-item-success"> تاریخ تولد
+                                        : {{ Userprofile.born }}</li>
+                                    <li class="list-group-item list-group-item-info">کد ملی
+                                        : {{ Userprofile.national_code }} </li>
+                                    <li class="list-group-item list-group-item-warning">ایمیل
+                                        : {{ Userprofile.mail }} </li>
+                                    <li class="list-group-item list-group-item-danger"> نام پدر
+                                        : {{ Userprofile.father_name }}</li>
+                                    <li class="list-group-item list-group-item-success">مدرسه
+                                        : {{ Userprofile.school }}</li>
+                                    <li class="list-group-item list-group-item-info"> شیفت مدرسه
+                                        : {{ Userprofile.school_time }}</li>
+                                    <li class="list-group-item list-group-item-warning"> نشانی منزل
+                                        : {{ Userprofile.address }}</li>
+                                    <li class="list-group-item list-group-item-danger"> تلفن منزل
+                                        : {{ Userprofile.phone }}</li>
+                                    <li class="list-group-item list-group-item-success"> میزان تحصیلات
+                                        : {{ Userprofile.end_ejuction }}</li>
+                                </ul>
+                            </div>
+
+
+
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">خروج</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    {% endif %}
+
+    <div id="content">
+
+        <div id="contentHeader">
+            <h1>دانش آموزان </h1>
+        </div> <!-- #contentHeader -->
+
+        <div class="container">
+
+            <div style=" direction: rtl" class="grid-24">
+
+                <div class="widget widget-table">
+
+                    <div class="widget-header">
+                        <span class="icon-list"></span>
+                        <h3 class="icon chart">لیست دانش آموزان</h3>
+                    </div>
+
+                    <div class="widget-content">
+
+                        <table class="table table-bordered table-striped data-table  dataTables_scrollBody ">
+                            <thead>
+                            <tr>
+
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>کد قرآن آموزی</th>
+                                <th>کد ملی</th>
+                                <th>شماره تلفن</th>
+                                <th>عکس</th>
+                                <th>ویرایش/حذف/نمایش</th>
+                            </tr>
+                            </thead>
+
+                            <tbody style="text-align: center">
+                            {% if all %}
+                                {% for UserProfile in all %}
+                                    <tr class="odd gradeX">
+                                        <td>{{ UserProfile.first_name }}</td>
+                                        <td>{{ UserProfile.last_name }} </td>
+                                        {#                                        <td>{{ UserProfile.father_name }}</td>#}
+                                        <td>{{ UserProfile.code }}</td>
+                                        <td>{{ UserProfile.national_code }}</td>
+                                        {#                                        <td>{{ UserProfile.born }}    </td>#}
+                                        {#                                        <td>{{ UserProfile.mail }}</td>#}
+                                        {#                                        <td>{{ UserProfile.end_ejuction }}</td>#}
+                                        {#                                        <td>{{ UserProfile.teacher }}</td>#}
+                                        <td>{{ UserProfile.phone }}</td>
+                                        {#                                        <td>{{ UserProfile.father_phone }}</td>#}
+                                        {#                                        <td>{{ UserProfile.address }}</td>#}
+                                        <td>{% if UserProfile.imgfile %}
+                                            <img src="{{ UserProfile.imgfile.url }} " width="50px"
+                                                 height="50px">{% endif %}    </td>
+                                        <td>
+
+                                            <a data-toggle="modal" data-target="#{{ UserProfile.pk }}"
+                                               class="btn  btn-primary"
+                                               href="" role="button">نمایش</a>
+
+                                            <a class="btn  btn-pink" href="/et/{{ UserProfile.pk }}"
+                                               role="button">ویرایش</a>
+                                            <a class="btn  btn-danger" href="" role="button">حذف</a>
+
+                                        </td>
+
+
+                                    </tr>
+                                {% endfor %}
+                            {% endif %}
+                            </tbody>
+
+
+                        </table>
+                    </div> <!-- .widget-content -->
+
+                </div> <!-- .widget -->
+
+
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
