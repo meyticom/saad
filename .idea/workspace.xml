@@ -8,32 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa81a368-f569-4ebb-8e59-ff87892fd81a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/forms.py" afterPath="$PROJECT_DIR$/portal/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/urls.py" afterPath="$PROJECT_DIR$/portal/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/portal/views.py" afterPath="$PROJECT_DIR$/portal/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/new/css/style.css" afterPath="$PROJECT_DIR$/static/new/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/Base.html" afterPath="$PROJECT_DIR$/templates/Base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/dictionaries/Loghman.xml" afterPath="$PROJECT_DIR$/templates/portal _ new/.idea/dictionaries/Loghman.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/misc.xml" afterPath="$PROJECT_DIR$/templates/portal _ new/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/modules.xml" afterPath="$PROJECT_DIR$/templates/portal _ new/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/panel.iml" afterPath="$PROJECT_DIR$/templates/portal _ new/.idea/panel.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/vcs.xml" afterPath="$PROJECT_DIR$/templates/portal _ new/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/workspace.xml" afterPath="$PROJECT_DIR$/templates/portal _ new/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/404.html" afterPath="$PROJECT_DIR$/templates/portal _ new/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/edit lesson.html" afterPath="$PROJECT_DIR$/templates/portal _ new/edit lesson.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/edit student.html" afterPath="$PROJECT_DIR$/templates/portal _ new/edit student.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/edit teacher.html" afterPath="$PROJECT_DIR$/templates/portal _ new/edit teacher.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/lesson form.html" afterPath="$PROJECT_DIR$/templates/portal _ new/lesson form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/lesson table.html" afterPath="$PROJECT_DIR$/templates/portal _ new/lesson table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/panel.html" afterPath="$PROJECT_DIR$/templates/portal _ new/panel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/setting.html" afterPath="$PROJECT_DIR$/templates/portal _ new/setting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/student form.html" afterPath="$PROJECT_DIR$/templates/portal _ new/student form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/student table.html" afterPath="$PROJECT_DIR$/templates/portal _ new/student table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/teacher form.html" afterPath="$PROJECT_DIR$/templates/portal _ new/teacher form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/portal _ new/teacher table.html" afterPath="$PROJECT_DIR$/templates/portal _ new/teacher table.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/dictionaries/Loghman.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/panel.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/portal _ new/.idea/workspace.xml" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -528,9 +508,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24169381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24169381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18413979" sideWeight="0.50642675" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
