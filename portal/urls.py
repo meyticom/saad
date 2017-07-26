@@ -14,6 +14,9 @@ urlpatterns = [
                   url(r'^lessons/$', views.lesson_list, name='lessons'),
                   url(r'^lesson/(?P<pk>\d+)/$', views.lesson_edit, name='edit_lesson'),
                   url(r'^add_lesson/$', views.add_lesson, name='add_lesson'),
-                  url(r'^setting/$', views.setting, name='setting')
+                  url(r'^setting/$', views.setting, name='setting'),
+                  url(r'^login', views.user_login, name='login'),
+                  url(r'^logout', views.user_logout, name='logout'),
+
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

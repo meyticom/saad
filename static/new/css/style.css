@@ -92,5 +92,25 @@ div.selector {
     top: -36px;
     right: 380px;
 }
+div.uploader {
+    width: 190px;
+    cursor: pointer;
+}
+div.uploader span.filename {
 
+    padding: 3px 3px;
+    float: left;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: default;
+}
+div.uploader span.action {
+    float:right;
+    display: inline;
+    padding: 4px 12px;
+    overflow: hidden;
+    cursor: pointer;
 
+}
