@@ -68,11 +68,14 @@ class Register_student(models.Model):
 
 class Financial(models.Model):
     last_name = models.ForeignKey(Register_student,null=True)
-    mablaghe_kol = models.CharField(max_length=20,null=True)
-    takhfif = models.CharField(max_length=20,null=True)
-    pardakht_avaliye = models.IntegerField(null=True)
-    def __unicode__(self):
-        return self.mablaghe_kol
+    kole_shahrie = models.CharField(max_length=50)
+    daryafti = models.CharField(max_length=50)
+    noe_takhfif = models.CharField(max_length=60,null=True)
+    shahrie_bt = models.CharField(max_length=50,null=True) #shahrie ba Ehtesabe takhfif
+    m_takhfif = models.CharField(max_length=50,null=True) #mablaghe takhfif dade shode
+    baghimande = models.CharField(max_length=50)
+    def __str__(self):
+        return self.kole_shahrie
 
 
 
