@@ -32,7 +32,7 @@
                                 <div class="field">
                                     <input name="name" tabindex=1 type="text"  id="name" size="12"
                                            class=""/>
-
+                                    {{ form.name.errors }}
                                 </div>
 
                             </div> <!-- .field-group -->
@@ -41,7 +41,7 @@
                                 <div class="field">
                                     <input  name="number" tabindex=2 type="text"  size="10" id="number"
                                            class=""/>
-
+                                    {{ form.number.errors }}
                                 </div>
                             </div>
 
@@ -49,11 +49,8 @@
                                 <label for="time">ساعت کلاس </label>
                                 <div class="field">
                                     <input name="time" tabindex=4 type="text"  id="time" size="12"/>
-
+                                    {{ form.time.errors }}
                                 </div>
-
-
-
 
                             </div> <!-- .field-group -->
                             <div class="field-group">
@@ -61,9 +58,8 @@
 
                                 <div class="field">
                                     <input name="date" tabindex=5 type="text"  id="date" size="12"/>
-
+                                    {{ form.date.errors }}
                                 </div>
-
 
                             </div> <!-- .field-group -->
                                <div class="field-group">
@@ -71,15 +67,14 @@
 
                                 <div class="field">
                                     {{ form.teacher }}
-
                                 </div>
-
+                                {{ form.teacher.errors }}
 
                             </div> <!-- .field-group -->
 
 
                             <div class="field-group">
-                                <button tabindex=7 class="btn-green btn-large"> تایید</button>
+                                <button tabindex=7 class="btn-green btn-large"> ثبت </button>
 
                             </div>
 

@@ -319,7 +319,7 @@ def jd_to_julian(td):
     d = math.floor(365.25 * c)
     e = math.floor((b - d) / 30.6001)
 
-    print a,b,c,d,e
+    print (a,b,c,d,e)
     month = math.floor((e - 1) if (e < 14) else (e - 13))
     year = math.floor((c - 4716) if (month > 2) else (c - 4715))
     day = b - d - math.floor(30.6001 * e)

@@ -33,6 +33,7 @@
                                 <div class="field">
                                     <input name="first_name" tabindex=1 type="text"  id="fname" size="20"
                                            class=""/>
+                                    {{ form.first_name.errors }}
 
                                 </div>
 
@@ -42,7 +43,7 @@
                                 <div class="field">
                                     <input  name="last_name" tabindex=2 type="text"  size="20" id="lname"
                                            class=""/>
-
+                                    {{ form.last_name.errors }}
                                 </div>
                             </div>
 
@@ -50,11 +51,8 @@
                                 <label for="cell">همراه</label>
                                 <div class="field">
                                     <input name="mobile" tabindex=4 type="text"  id="cell" size="14"/>
-
+                                    {{ form.mobile.errors }}
                                 </div>
-
-
-
 
                             </div> <!-- .field-group -->
                             <div class="field-group">
@@ -62,7 +60,7 @@
 
                                 <div class="field">
                                     <input name="national_code" tabindex=5 type="text"  id="nacode" size="15"/>
-
+                                    {{ form.national_code.errors }}
                                 </div>
 
 
@@ -73,6 +71,7 @@
                                 <div class="field">
                                     <textarea name="address"  tabindex=6 id="address" rows="3" cols="50"></textarea>
                                 </div>
+                                {{ form.address.errors }}
                             </div> <!-- .field-group -->
 
 
@@ -80,7 +79,7 @@
                                 <label for="email">Email</label>
                                 <div  class="field">
                                     <input  type="text" tabindex=8 name="mail" id="email" size="22" class=""/>
-
+                                    {{ form.mail.errors}}
                                 </div>
                             </div> <!-- .field-group -->
 {#                            <div class="field-group">#}
@@ -102,14 +101,14 @@
                             <div   class="field-group ">
                                 <label for="myfile">تصویر مربی</label>
                                 <div  class="field">
-
                                     <input type="file" tabindex=10 name="imgfile"  id="myfile"/>
                                 </div>
+                                {{ form.imgfile.errors }}
                             </div>
 
                             <div class="field-group">
                                 <div  class="field">
-                                <button tabindex=11 class="btn-green btn-large"> تایید</button>
+                                <button tabindex=11 class="btn-green btn-large"> ثبت </button>
                                 </div>
 
                             </div>

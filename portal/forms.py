@@ -10,10 +10,10 @@ class teacherform(forms.ModelForm):
     imgfile = forms.FileField(required=False)
     first_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'size':'14'}))
     last_name = forms.CharField(max_length=100,widget=forms.TextInput(attrs={'size':'15'}))
-    national_code = forms.IntegerField(widget=forms.TextInput(attrs={'size':'16'}))
+    national_code = forms.CharField(widget=forms.TextInput(attrs={'size':'16'}))
     address = forms.CharField(widget=forms.Textarea(attrs={'rows': '3'}))
-    mobile = forms.IntegerField(widget=forms.TextInput(attrs={'size': '17'}))
-    mail = forms.EmailField(widget=forms.TextInput(attrs={'size': '24'}))
+    mobile = forms.CharField(widget=forms.TextInput(attrs={'size': '17'}))
+    mail = forms.EmailField(required=False,widget=forms.TextInput(attrs={'size': '24'}))
     class Meta:
         model = Teacher
         fields = ('imgfile','first_name', 'last_name', 'national_code', 'address', 'mobile','mail')
@@ -34,7 +34,7 @@ class studentfrom(forms.ModelForm):
                       ('16', 'پیش دبستانی'),('17','عدم آغاز تحصیل'),)
     CHOICES_father_ejuction=(('1','دکتری'),('2','فوق لیسانس'),('3','لیسانس'),('4','فوق دیپلم'),('5','دیپلم'),)
     CHOICES_mother_ejuction=(('1','دکتری'),('2','فوق لیسانس'),('3','لیسانس'),('4','فوق دیپلم'),('5','دیپلم'),('6','زیر دیپلم'))
-    code = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'disabled': 'true','style':'background-color:#91bae8','size': '12'}))
+    code = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'style':'background-color:#91bae8','size': '12'}))
     imgfile = forms.FileField(required=False,)#widget=forms.FileInput(attrs={'class':'img-thumbnail'})
     first_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'size':'16'}))
     last_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'size':'17'}))
@@ -45,7 +45,7 @@ class studentfrom(forms.ModelForm):
     end_ejuction = forms.ChoiceField(widget=forms.Select,choices=CHOICES_ejuction)
     address = forms.CharField(max_length=1000,widget=forms.Textarea(attrs={'rows':'3'}))
     phone = forms.CharField(max_length=50,required=False,widget=forms.TextInput(attrs={'size':'15'}))
-    mobile = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'size':'15'}))
+    mobile = forms.CharField(max_length=50,required=False,widget=forms.TextInput(attrs={'size':'15'}))
     school = forms.CharField(max_length=50,required=False,widget=forms.TextInput(attrs={'size':'17'}))
     school_time = forms.CharField(max_length=25,required=False,widget=forms.TextInput(attrs={'size':'16'}))
 

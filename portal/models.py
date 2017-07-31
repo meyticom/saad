@@ -12,13 +12,12 @@ class Teacher(models.Model):
     imgfile = models.FileField(upload_to='img_teacher/',null=True,blank=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    national_code = models.IntegerField()
-    address = models.TextField()
-    mobile = models.IntegerField()
-    mail = models.EmailField()
-
-    def __unicode__(self):
-        return u'%s %s' % (self.first_name, self.last_name)
+    national_code = models.CharField(max_length=20,null=True,blank=True)
+    address = models.TextField(null=True,blank=True)
+    mobile = models.CharField(null=True,blank=True,max_length=12)
+    mail = models.EmailField(null=True,blank=True)
+    def __str__(self):
+        return self.first_name +" " + self.last_name
 
 
 class Lesson(models.Model):
@@ -27,7 +26,6 @@ class Lesson(models.Model):
     teacher = models.CharField(max_length=100)
     time = models.CharField(max_length=100)
     date = models.CharField(max_length=50)
-
     def __unicode__(self):
         return self.name
 
@@ -36,7 +34,7 @@ class Register_student(models.Model):
     imgfile = models.FileField(upload_to='img_profile/',null=True,blank=True)
     first_name = models.CharField(max_length=50,)
     last_name = models.CharField(max_length=50)
-    father_name = models.CharField(max_length=50)
+    father_name = models.CharField(max_length=50,null=True,blank=True)
     national_code = models.CharField(max_length=50,null=True,blank=True)
     mail = models.EmailField(null=True)
     born = models.CharField(max_length=50)

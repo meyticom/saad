@@ -1,6 +1,6 @@
 {% extends 'Base.html' %}
 {% block title %}
-<title>فرم دانش آموزان</title>
+    <title>فرم دانش آموزان</title>
 {% endblock %}
 {% block main %}
     <div style="direction: rtl" id="content">
@@ -15,7 +15,7 @@
 
             <div class="grid-16">
 
-                <form action="/add_student/" class="form uniformForm" method="post">
+                <form action="/add_student/" class="form uniformForm" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
 
                     <div class="widget">
@@ -28,14 +28,14 @@
                         <!-- .widget-header -->
 
                         <div class="widget-content">
-                             <div class="field-group">
-                                <label for="code">شماره صاد</label>
+                            <div class="field-group">
+                                <label for="code">صاد کد</label>
 
                                 <div class="field">
-                                    <input style="background-color: #91bae8" disabled type="text" name="code" id="code" tabindex=1 size="12" value="{{ student_code }}"/>
-
+                                    <input style="background-color: #91bae8" type="text" name="code" id="code"
+                                           tabindex=1 size="12" value="{{ student_code }}"/>
+                                    {{ form.code.errors }}
                                 </div>
-
 
 
                             </div>
@@ -46,16 +46,14 @@
 
                                 <div class="field">
                                     <input type="text" name="first_name" size="14" tabindex=1 id="fname" class=""/>
-
+                                    {{ form.first_name.errors }}
                                 </div>
                                 <label for="lname">نام خانوادگی</label>
 
                                 <div class="field">
                                     <input type="text" name="last_name" size="15" id="lname" tabindex=2 class=""/>
-
+                                    {{ form.last_name.errors }}
                                 </div>
-
-
                             </div>
                             <!-- .field-group -->
 
@@ -64,9 +62,8 @@
 
                                 <div class="field">
                                     <input type="text" name="mobile" id="cell" tabindex=4 size="12"/>
-
+                                    {{ form.mobile.errors }}
                                 </div>
-
 
 
                             </div>
@@ -76,9 +73,8 @@
 
                                 <div class="field">
                                     <input type="text" name="born" id="cell" tabindex=5 size="12"/>
-
+                                    {{ form.born.errors }}
                                 </div>
-
 
 
                             </div>
@@ -89,7 +85,7 @@
 
                                 <div class="field">
                                     <input type="text" name="national_code" id="nacode" tabindex=6 size="14"/>
-
+                                    {{ form.national_code.errors }}
                                 </div>
 
 
@@ -101,7 +97,7 @@
 
                                 <div class="field">
                                     <input type="text" name="mail" tabindex=7 id="email" size="22" class=""/>
-
+                                    {{ form.mail.errors }}
                                 </div>
 
                             </div>
@@ -112,17 +108,17 @@
 
                                 <div class="field">
 
-                                    <input type="text" name="father_name" tabindex=8 id="fatname" title="نام پدر" size="14" class=""/>
-
+                                    <input type="text" name="father_name" tabindex=8 id="fatname" title="نام پدر"
+                                           size="14" class=""/>
+                                    {{ form.father_name.errors }}
                                 </div>
                             </div>
                             <div class="field-group">
                                 <label for="school">مدرسه</label>
 
                                 <div class="field">
-
                                     <input type="text" tabindex=9 id="school" name="school" size="12" class=""/>
-
+                                    {{ form.school.errors }}
                                 </div>
                             </div>
                             <div class="field-group">
@@ -131,7 +127,7 @@
                                 <div class="field">
 
                                     <input type="text" name="school_time" id="shift" tabindex=10 size="15" class=""/>
-
+                                    {{ form.school_time.errors }}
                                 </div>
                             </div>
                             <div class="field-group">
@@ -139,6 +135,7 @@
 
                                 <div class="field">
                                     <textarea name="address" tabindex=11 id="address" rows="2" cols="50"></textarea>
+                                    {{ form.address.errors }}
                                 </div>
                             </div>
                             <!-- .field-group -->
@@ -146,51 +143,51 @@
                                 <label for="homep">تلفن منزل</label>
 
                                 <div class="field">
-                                    <input name="phone" type="text" tabindex=12 id="homep"  size="14"/>
-
+                                    <input name="phone" type="text" tabindex=12 id="homep" size="14"/>
+                                    {{ form.phone.errors }}
                                 </div>
-
-
 
                             </div>
                             <!-- .field-group -->
-{#                            <div class="field-group">#}
+                            {#                            <div class="field-group">#}
 
-{##}
-{#                                <div class="field">#}
-{#                                    <select tabindex=13  name="end_ejuction" id="educ">#}
-{#                                        <option selected> دکتری</option>#}
-{#                                        <option>فوق لیسانس</option>#}
-{#                                        <option>لیسانس</option>#}
-{#                                        <option>فوق دیپلم</option>#}
-{#                                        <option>دیپلم</option>#}
-{#                                        <option>یازدهم</option>#}
-{#                                        <option>دهم</option>#}
-{#                                        <option>نهم</option>#}
-{#                                        <option>هشتم</option>#}
-{#                                        <option>هفتم</option>#}
-{#                                        <option>ششم</option>#}
-{#                                        <option>پنجم</option>#}
-{#                                        <option>چهارم</option>#}
-{#                                        <option>سوم</option>#}
-{#                                        <option>دوم</option>#}
-{#                                        <option>یکم</option>#}
-{#                                        <option>پیش دبستانی</option>#}
-{#                                        <option>عدم آغاز تحصیل</option>#}
-{#                                    </select>#}
-{##}
-{#                                </div>#}
-{#                            </div>#}
-{#                            <!-- .field-group -->#}
-                             <div class="field-group">
-                            <label style="margin-bottom: " >میزان تحصیلات</label>
-                            {{ form.end_ejuction }}
-                             </div>
+                            {##}
+                            {#                                <div class="field">#}
+                            {#                                    <select tabindex=13  name="end_ejuction" id="educ">#}
+                            {#                                        <option selected> دکتری</option>#}
+                            {#                                        <option>فوق لیسانس</option>#}
+                            {#                                        <option>لیسانس</option>#}
+                            {#                                        <option>فوق دیپلم</option>#}
+                            {#                                        <option>دیپلم</option>#}
+                            {#                                        <option>یازدهم</option>#}
+                            {#                                        <option>دهم</option>#}
+                            {#                                        <option>نهم</option>#}
+                            {#                                        <option>هشتم</option>#}
+                            {#                                        <option>هفتم</option>#}
+                            {#                                        <option>ششم</option>#}
+                            {#                                        <option>پنجم</option>#}
+                            {#                                        <option>چهارم</option>#}
+                            {#                                        <option>سوم</option>#}
+                            {#                                        <option>دوم</option>#}
+                            {#                                        <option>یکم</option>#}
+                            {#                                        <option>پیش دبستانی</option>#}
+                            {#                                        <option>عدم آغاز تحصیل</option>#}
+                            {#                                    </select>#}
+                            {##}
+                            {#                                </div>#}
+                            {#                            </div>#}
+                            {#                            <!-- .field-group -->#}
+                            <div class="field-group">
+                                <label style="margin-bottom: ">میزان تحصیلات</label>
+                                {{ form.end_ejuction }}
+                                {{ form.end_ejuction.errors }}
+                            </div>
                             <div class="field-group inlineField">
                                 <label style="margin-top: 11px" for="myfile">تصویر دانش آموز</label>
 
                                 <div class="field">
                                     <input tabindex=14 type="file" name="imgfile" id="myfile"/>
+                                    {{ form.imgfile.errors }}
                                 </div>
                             </div>
 
@@ -198,10 +195,6 @@
 
                     </div>
                     <!-- .widget -->
-
-
-
-
 
 
                     <div class="widget">
@@ -219,52 +212,52 @@
                                 <label for="jill">بیماری جسمی </label>
 
                                 <div class="field">
-                                    <input type="text" name="physical_illness" tabindex=15 size="12" id="jill" class=""/>
-
+                                    <input type="text" name="physical_illness" tabindex=15 size="12" id="jill"
+                                           class=""/>
+                                    {{ form.physical_illness.errors }}
                                 </div>
                                 <div class="field-group">
                                     <label for="medd">داروی مصرفی </label>
 
                                     <div class="field">
-                                        <input type="text" tabindex=16 name="physical_illness_medicine" id="medd" size="12" class=""/>
-
+                                        <input type="text" tabindex=16 name="physical_illness_medicine" id="medd"
+                                               size="12" class=""/>
+                                        {{ form.physical_illness_medicine.errors }}
                                     </div>
 
                                     <div class="field-group">
                                         <label for="rill">بیماری روحی روانی</label>
 
                                         <div class="field">
-                                            <input type="text" tabindex=17 name="mental_illness" id="rill" size="12" class=""/>
-
-
+                                            <input type="text" tabindex=17 name="mental_illness" id="rill" size="12"
+                                                   class=""/>
+                                            {{ form.mental_illness.errors }}
                                         </div>
                                     </div>
                                     <div class="field-group">
                                         <label for="rill">داروی مصرفی روانی</label>
 
                                         <div class="field">
-                                            <input type="text" tabindex=18 name="mental_illness_medicine" id="rill" size="12" class=""/>
-
-
+                                            <input type="text" tabindex=18 name="mental_illness_medicine" id="rill"
+                                                   size="12" class=""/>
+                                            {{ form.mental_illness_medicine.errors }}
                                         </div>
                                     </div>
                                     <div class="field-group">
                                         <label for="descr">شرح حال</label>
 
                                         <div class="field">
-                                            <textarea name="detail" tabindex=19 id="descr" rows="5" cols="50"></textarea>
+                                            <textarea name="detail" tabindex=19 id="descr" rows="5"
+                                                      cols="50"></textarea>
+                                            {{ form.detail.errors }}
                                         </div>
                                     </div>
                                     <!-- .field-group -->
-
-
                                 </div>
                                 <!-- .widget -->
-
                             </div>
                         </div>
                     </div>
-
 
 
                     <div class="widget">
@@ -283,10 +276,8 @@
 
                                 <div class="field">
                                     <input type="text" tabindex=20 name="father_phone" id="fatph" size="11" class=""/>
-
+                                    {{ form.father_phone.errors }}
                                 </div>
-
-
                             </div>
                             <!-- .field-group -->
                             <div class="field-group">
@@ -294,78 +285,74 @@
 
                                 <div class="field">
                                     <input type="text" tabindex=21 name="mother_phone" id="motph" size="11"/>
-
+                                    {{ form.mother_phone.errors }}
                                 </div>
-
-
                             </div>
                             <!-- .field-group -->
-                                <div class="field-group">
+                            <div class="field-group">
                                 <label for="motph">شغل پدر</label>
 
                                 <div class="field">
                                     <input type="text" tabindex=22 name="father_work" id="motph" size="11"/>
-
+                                    {{ form.father_work.errors}}
                                 </div>
-
-
                             </div>
                             <!-- .field-group -->
 
-                              <div class="field-group">
+                            <div class="field-group">
                                 <label for="motwo">شغل مادر</label>
 
                                 <div class="field">
                                     <input type="text" tabindex=23 name="mother_work" id="motwo" size="10"/>
-
+                                    {{ form.mother_work.errors }}
                                 </div>
-
-
                             </div>
                             <!-- .field-group -->
-{##}
-{#                            <div class="field-group">#}
-{##}
-{##}
-{#                                <div class="field-group">#}
+                            {##}
+                            {#                            <div class="field-group">#}
+                            {##}
+                            {##}
+                            {#                                <div class="field-group">#}
 
-{#                                    <select   name="father_ejuction"  tabindex=24 id="fatedu">#}
-{#                                        <option selected>زیر دیپلم</option>#}
-{#                                        <option> دیپلم</option>#}
-{#                                        <option>لیسانس</option>#}
-{#                                        <option>فوق لیسانس</option>#}
-{#                                        <option>دکتری</option>#}
-{#                                    </select>#}
-{##}
-{#                                </div>#}
-{#                            </div>#}
+                            {#                                    <select   name="father_ejuction"  tabindex=24 id="fatedu">#}
+                            {#                                        <option selected>زیر دیپلم</option>#}
+                            {#                                        <option> دیپلم</option>#}
+                            {#                                        <option>لیسانس</option>#}
+                            {#                                        <option>فوق لیسانس</option>#}
+                            {#                                        <option>دکتری</option>#}
+                            {#                                    </select>#}
+                            {##}
+                            {#                                </div>#}
+                            {#                            </div>#}
                             <!-- .field-group -->
                             <div class="field-group">
-                                <label style="margin-bottom: 1px" >میزان تحصیلات پدر</label>
-                            {{ form.father_ejuction }}
+                                <label style="margin-bottom: 1px">میزان تحصیلات پدر</label>
+                                {{ form.father_ejuction }}
+                                {{ form.father_ejuction.errors }}
                             </div>
-{#                            <div class="field-group">#}
-{##}
-{##}
-{#                                <div class="field-group">#}
+                            {#                            <div class="field-group">#}
+                            {##}
+                            {##}
+                            {#                                <div class="field-group">#}
 
-{#                                    <select name="mother_ejuction" tabindex=25 id="motedu">#}
-{#                                        <option selected>زیر دیپلم</option>#}
-{#                                        <option> دیپلم</option>#}
-{#                                        <option>لیسانس</option>#}
-{#                                        <option>فوق لیسانس</option>#}
-{#                                        <option>دکتری</option>#}
-{#                                    </select>#}
-{##}
-{#                                </div>#}
-{#                            </div>#}
+                            {#                                    <select name="mother_ejuction" tabindex=25 id="motedu">#}
+                            {#                                        <option selected>زیر دیپلم</option>#}
+                            {#                                        <option> دیپلم</option>#}
+                            {#                                        <option>لیسانس</option>#}
+                            {#                                        <option>فوق لیسانس</option>#}
+                            {#                                        <option>دکتری</option>#}
+                            {#                                    </select>#}
+                            {##}
+                            {#                                </div>#}
+                            {#                            </div>#}
                             <!-- .field-group -->
                             <div class="field-group">
-                            <label style="margin-top: 4px" >میزان تحصیلات مادر</label>
-                            {{ form.mother_ejuction }}
+                                <label style="margin-top: 4px">میزان تحصیلات مادر</label>
+                                {{ form.mother_ejuction }}
+                                {{ form.mother_ejuction.errors }}
                             </div>
                             <div class="field-group">
-                                <button tabindex=26 class="btn-green btn-large"> تایید</button>
+                                <button tabindex=26 class="btn-green btn-large"> ثبت </button>
 
                             </div>
 
@@ -383,20 +370,20 @@
 
 
                 <div class="box">
-                    <h3>مواردی که باید بدانید</h3>
+                    <h3>فیلد های زیر حتما لازم است </h3>
                     <ul>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li>کد صاد</li>
+                        <li>نام و نام خانوادگی</li>
+                        <li>آدرس</li>
+                        <li></li>
+                        <li></li>
                     </ul>
 
                     <ul>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
-                        <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
 
                     </ul>
                 </div>
