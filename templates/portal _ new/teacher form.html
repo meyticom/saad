@@ -15,7 +15,7 @@
 
             <div class="grid-16">
 
-                <form class="form uniformForm" action="/add_teacher/" method="post"
+                <form class="form uniformForm validateForm" action="/add_teacher/" method="post"
                       enctype="multipart/form-data">
                     {% csrf_token %}
 
@@ -32,7 +32,7 @@
                                 <label for="fname">نام</label>
                                 <div class="field">
                                     <input name="first_name" tabindex=1 type="text"  id="fname" size="20"
-                                           class=""/>
+                                           class="validate[required]"/>
                                     {{ form.first_name.errors }}
 
                                 </div>
@@ -42,7 +42,7 @@
                                 <label for="lname">نام خانوادگی </label>
                                 <div class="field">
                                     <input  name="last_name" tabindex=2 type="text"  size="20" id="lname"
-                                           class=""/>
+                                           class="validate[required]"/>
                                     {{ form.last_name.errors }}
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                             <div class="field-group">
                                 <label for="cell">همراه</label>
                                 <div class="field">
-                                    <input name="mobile" tabindex=4 type="text"  id="cell" size="14"/>
+                                    <input class="validate[required]" name="mobile" tabindex=3 type="text"  id="cell" size="14"/>
                                     {{ form.mobile.errors }}
                                 </div>
 
@@ -59,7 +59,7 @@
                                 <label for="nacode">کدملی</label>
 
                                 <div class="field">
-                                    <input name="national_code" tabindex=5 type="text"  id="nacode" size="15"/>
+                                    <input name="national_code" tabindex=4 type="text"  id="nacode" size="15"/>
                                     {{ form.national_code.errors }}
                                 </div>
 
@@ -69,7 +69,7 @@
                                 <label for="address">آدرس</label>
 
                                 <div class="field">
-                                    <textarea name="address"  tabindex=6 id="address" rows="3" cols="50"></textarea>
+                                    <textarea name="address"  tabindex=5 id="address" rows="3" cols="50"></textarea>
                                 </div>
                                 {{ form.address.errors }}
                             </div> <!-- .field-group -->

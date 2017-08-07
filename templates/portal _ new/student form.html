@@ -13,9 +13,9 @@
         <div class="container">
 
 
-            <div class="grid-16">
+            <div class="grid-14">
 
-                <form action="/add_student/" class="form uniformForm" method="post" enctype="multipart/form-data">
+                <form action="/add_student/" class="form uniformForm validateForm" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
 
                     <div class="widget">
@@ -32,7 +32,7 @@
                                 <label for="code">صاد کد</label>
 
                                 <div class="field">
-                                    <input style="background-color: #91bae8" type="text" name="code" id="code"
+                                    <input style="background-color: #b5b7bb" type="text" name="code" id="code"
                                            tabindex=1 size="12" value="{{ student_code }}"/>
                                     {{ form.code.errors }}
                                 </div>
@@ -45,13 +45,13 @@
                                 <label for="fname">نام</label>
 
                                 <div class="field">
-                                    <input type="text" name="first_name" size="14" tabindex=1 id="fname" class=""/>
+                                    <input type="text" name="first_name" size="20" tabindex=1 id="fname" class="validate[required]"/>
                                     {{ form.first_name.errors }}
                                 </div>
                                 <label for="lname">نام خانوادگی</label>
 
                                 <div class="field">
-                                    <input type="text" name="last_name" size="15" id="lname" tabindex=2 class=""/>
+                                    <input type="text" name="last_name" size="20" id="lname" tabindex=2 class="validate[required]"/>
                                     {{ form.last_name.errors }}
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                                 <label for="cell">همراه</label>
 
                                 <div class="field">
-                                    <input type="text" name="mobile" id="cell" tabindex=4 size="12"/>
+                                    <input class="validate[required]" type="text" name="mobile" id="cell" tabindex=3 size="20"/>
                                     {{ form.mobile.errors }}
                                 </div>
 
@@ -72,7 +72,7 @@
                                 <label for="cell">تاریخ تولد</label>
 
                                 <div class="field">
-                                    <input type="text" name="born" id="cell" tabindex=5 size="12"/>
+                                    <input  type="text" name="born" id="cell" tabindex=4 size="12"/>
                                     {{ form.born.errors }}
                                 </div>
 
@@ -84,7 +84,7 @@
                                 <label for="nacode">کدملی</label>
 
                                 <div class="field">
-                                    <input type="text" name="national_code" id="nacode" tabindex=6 size="14"/>
+                                    <input type="text" name="national_code" id="nacode" class="validate[required]" tabindex=5 size="14"/>
                                     {{ form.national_code.errors }}
                                 </div>
 
@@ -96,7 +96,7 @@
                                 <label for="email">ایمیل</label>
 
                                 <div class="field">
-                                    <input type="text" name="mail" tabindex=7 id="email" size="22" class=""/>
+                                    <input type="text" name="mail" tabindex=6 id="email" size="22" class="validate[required,custom[email]"/>
                                     {{ form.mail.errors }}
                                 </div>
 
@@ -108,7 +108,7 @@
 
                                 <div class="field">
 
-                                    <input type="text" name="father_name" tabindex=8 id="fatname" title="نام پدر"
+                                    <input type="text" name="father_name" tabindex=7 id="fatname" title="نام پدر"
                                            size="14" class=""/>
                                     {{ form.father_name.errors }}
                                 </div>
@@ -117,7 +117,7 @@
                                 <label for="school">مدرسه</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=9 id="school" name="school" size="12" class=""/>
+                                    <input type="text" tabindex=8 id="school" name="school" size="20" class=""/>
                                     {{ form.school.errors }}
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
 
                                 <div class="field">
 
-                                    <input type="text" name="school_time" id="shift" tabindex=10 size="15" class=""/>
+                                    <input type="text" name="school_time" id="shift" tabindex=9 size="15" class=""/>
                                     {{ form.school_time.errors }}
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                 <label for="address">آدرس</label>
 
                                 <div class="field">
-                                    <textarea name="address" tabindex=11 id="address" rows="2" cols="50"></textarea>
+                                    <textarea class="validate[required]" name="address" tabindex=10 id="address" rows="2" cols="50"></textarea>
                                     {{ form.address.errors }}
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                 <label for="homep">تلفن منزل</label>
 
                                 <div class="field">
-                                    <input name="phone" type="text" tabindex=12 id="homep" size="14"/>
+                                    <input name="phone" type="text" tabindex=11 id="homep" size="14"/>
                                     {{ form.phone.errors }}
                                 </div>
 
@@ -177,16 +177,16 @@
                             {#                                </div>#}
                             {#                            </div>#}
                             {#                            <!-- .field-group -->#}
-                            <div class="field-group">
+                            <div tabindex=12 class="field-group">
                                 <label style="margin-bottom: ">میزان تحصیلات</label>
                                 {{ form.end_ejuction }}
                                 {{ form.end_ejuction.errors }}
                             </div>
-                            <div class="field-group inlineField">
+                            <div   class="field-group inlineField">
                                 <label style="margin-top: 11px" for="myfile">تصویر دانش آموز</label>
 
                                 <div class="field">
-                                    <input tabindex=14 type="file" name="imgfile" id="myfile"/>
+                                    <input tabindex=13 type="file" name="imgfile" id="myfile"/>
                                     {{ form.imgfile.errors }}
                                 </div>
                             </div>
@@ -212,7 +212,7 @@
                                 <label for="jill">بیماری جسمی </label>
 
                                 <div class="field">
-                                    <input type="text" name="physical_illness" tabindex=15 size="12" id="jill"
+                                    <input type="text" name="physical_illness" tabindex=14 size="12" id="jill"
                                            class=""/>
                                     {{ form.physical_illness.errors }}
                                 </div>
@@ -220,7 +220,7 @@
                                     <label for="medd">داروی مصرفی </label>
 
                                     <div class="field">
-                                        <input type="text" tabindex=16 name="physical_illness_medicine" id="medd"
+                                        <input type="text" tabindex=15 name="physical_illness_medicine" id="medd"
                                                size="12" class=""/>
                                         {{ form.physical_illness_medicine.errors }}
                                     </div>
@@ -229,7 +229,7 @@
                                         <label for="rill">بیماری روحی روانی</label>
 
                                         <div class="field">
-                                            <input type="text" tabindex=17 name="mental_illness" id="rill" size="12"
+                                            <input type="text" tabindex=16 name="mental_illness" id="rill" size="12"
                                                    class=""/>
                                             {{ form.mental_illness.errors }}
                                         </div>
@@ -238,7 +238,7 @@
                                         <label for="rill">داروی مصرفی روانی</label>
 
                                         <div class="field">
-                                            <input type="text" tabindex=18 name="mental_illness_medicine" id="rill"
+                                            <input type="text" tabindex=17 name="mental_illness_medicine" id="rill"
                                                    size="12" class=""/>
                                             {{ form.mental_illness_medicine.errors }}
                                         </div>
@@ -247,7 +247,7 @@
                                         <label for="descr">شرح حال</label>
 
                                         <div class="field">
-                                            <textarea name="detail" tabindex=19 id="descr" rows="5"
+                                            <textarea name="detail" tabindex=18 id="descr" rows="5"
                                                       cols="50"></textarea>
                                             {{ form.detail.errors }}
                                         </div>
@@ -275,7 +275,7 @@
                                 <label for="fatph">همراه پدر</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=20 name="father_phone" id="fatph" size="11" class=""/>
+                                    <input type="text" tabindex=19 name="father_phone" id="fatph" size="11" class=""/>
                                     {{ form.father_phone.errors }}
                                 </div>
                             </div>
@@ -284,7 +284,7 @@
                                 <label for="motph">همراه مادر</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=21 name="mother_phone" id="motph" size="11"/>
+                                    <input type="text" tabindex=20 name="mother_phone" id="motph" size="11"/>
                                     {{ form.mother_phone.errors }}
                                 </div>
                             </div>
@@ -293,7 +293,7 @@
                                 <label for="motph">شغل پدر</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=22 name="father_work" id="motph" size="11"/>
+                                    <input type="text" tabindex=21 name="father_work" id="motph" size="11"/>
                                     {{ form.father_work.errors}}
                                 </div>
                             </div>
@@ -303,7 +303,7 @@
                                 <label for="motwo">شغل مادر</label>
 
                                 <div class="field">
-                                    <input type="text" tabindex=23 name="mother_work" id="motwo" size="10"/>
+                                    <input type="text" tabindex=22 name="mother_work" id="motwo" size="10"/>
                                     {{ form.mother_work.errors }}
                                 </div>
                             </div>
@@ -325,7 +325,7 @@
                             {#                                </div>#}
                             {#                            </div>#}
                             <!-- .field-group -->
-                            <div class="field-group">
+                            <div tabindex=23 class="field-group">
                                 <label style="margin-bottom: 1px">میزان تحصیلات پدر</label>
                                 {{ form.father_ejuction }}
                                 {{ form.father_ejuction.errors }}
@@ -346,13 +346,13 @@
                             {#                                </div>#}
                             {#                            </div>#}
                             <!-- .field-group -->
-                            <div class="field-group">
+                            <div tabindex=24 class="field-group">
                                 <label style="margin-top: 4px">میزان تحصیلات مادر</label>
                                 {{ form.mother_ejuction }}
                                 {{ form.mother_ejuction.errors }}
                             </div>
                             <div class="field-group">
-                                <button tabindex=26 class="btn-green btn-large"> ثبت </button>
+                                <button tabindex=25 class="btn-green btn-large"> ثبت </button>
 
                             </div>
 
@@ -366,31 +366,55 @@
             </div>
             <!-- .grid -->
 
-            <div style="direction: rtl" class="grid-7">
+           <div dir="rtl" class="grid-8">
 
 
-                <div class="box">
-                    <h3>فیلد های زیر حتما لازم است </h3>
-                    <ul>
-                        <li>کد صاد</li>
-                        <li>نام و نام خانوادگی</li>
-                        <li>آدرس</li>
-                        <li></li>
-                        <li></li>
-                    </ul>
 
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+<div class="widget widget-tabs">
 
-                    </ul>
-                </div>
-                <!-- .box -->
+					<div class="widget-header">
 
-            </div>
-            <!-- .grid -->
+						<ul class="tabs right">
+							<li class="active"><a href="#tab-1">Tab #1</a></li>
+							<li class=""><a href="#tab-2">Tab #2</a></li>
+							<li class=""><a href="#tab-3">Tab #3</a></li>
+						</ul>
+					</div> <!-- .widget-header -->
+
+					<div id="tab-1" class="widget-content">
+
+						<h4>Tab #1 Content</h4>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					</div> <!-- .widget-content -->
+
+					<div id="tab-2" class="widget-content">
+
+						<h4>Tab #2 Content</h4>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					</div> <!-- .widget-content -->
+
+					<div id="tab-3" class="widget-content">
+
+						<h4>Tab #3 Content</h4>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					</div> <!-- .widget-content -->
+
+			</div> <!-- .widget -->
+
+				</div>
+{#            <!-- .grid -->#}
 
         </div>
         <!-- .container -->

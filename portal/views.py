@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.shortcuts import render,get_object_or_404,redirect
-import urllib.request
-from portal.models import Teacher,Lesson,Register_student,Setting
-from portal.forms import teacherform,studentfrom,Lessonform,settingform
+import urllib
+from portal.models import Teacher,Lesson,Register_student,Setting,Financial
+from portal.forms import teacherform,studentfrom,Lessonform,settingform,financialform
 import time,datetime
 from portal import jdate
 
@@ -27,8 +27,8 @@ def edit_teacher(request,pk):
 
 @login_required
 def del_teacher(request,pk):
-    del_teacher = Teacher.objects.get(pk=pk)
-    del_teacher.delete()
+    del_teach = Teacher.objects.get(pk=pk)
+    del_teach.delete()
 
     return redirect(view_teacher)
 
@@ -75,7 +75,10 @@ def add_student(request):
     try:
         student_code = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(student.code[3:7])+1)[1:]
     except:
-        student_code = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(set.student_first_code[3:7])+1)[1:]
+        try:
+            student_code = str(jdate.jd_to_persian(jd)[0])[2:4] + str(month)+"1"+str(int(set.student_first_code[3:7])+1)[1:]
+        except:
+            return redirect(setting)
     studentforms = Register_student.objects.all()
     if request.method =='POST':
         form = studentfrom(request.POST, request.FILES)
@@ -97,7 +100,7 @@ def add_student(request):
                               'msg': 'گرانمایه ارجمند:{0} عزیز پیوستن شما را به خانواده بزرگ صاد تبریک می گوییم '.format(
                                   data['first_name']),'uname':'{0}'.format(set.sms_username),'pass':'{0}'.format(set.sms_password)}
                     urllib.request.urlopen("http://37.130.202.188/class/sms/webservice/send_url.php?from={0}&{1}".format(set.sms_number,urllib.parse.urlencode(sms_m)))
-            return redirect(all_student)
+            return redirect(financial)
         else:
             print (form.errors)
     else:
@@ -189,11 +192,6 @@ def paa(request):
 
 @login_required
 def setting(reqest):
-    bb = Setting.objects.all().last()
-    if bb.sms_number :
-        print (bb.sms_number)
-    else:
-        print("nothing")
     data = Setting.objects.all().first()
     if reqest.method == "POST":
         form = settingform(reqest.POST,instance=data)
@@ -204,7 +202,6 @@ def setting(reqest):
             print (form.errors)
     else:
         form = settingform(instance=data)
-
     return render(reqest,'portal _ new/setting.html',{'form':form})
 
 
@@ -268,3 +265,29 @@ def user_login(request):
         else:
             return HttpResponse("شما وارد سایت شده اید")
 ###########################################################################################
+
+
+def financial(request):
+    if request.method =='POST':
+        form = financialform(request.POST)
+        if form.is_valid():
+            user=form.save(commit=False)
+            user.code=Register_student.objects.all().only('code').last()
+            user.save()
+            return redirect(all_student)
+        else:
+            print (form.errors)
+    else:
+        form = Lessonform()
+    return render(request,"portal _ new/Financial.html",{'form':form})
+
+
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+def operator(request):
+    return render(request, "portal _ new/operator.html")
+
+
+@login_required
+def main(request):
+    return render(request, "portal _ new/main.html")

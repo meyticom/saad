@@ -1,5 +1,11 @@
 
-body { background: #222; font: 12px/1.7em arial, sans-serif; margin: 75px; }
+@font-face {
+    font-family: Vazir;
+    src: url(../fonts/Vazir.eot ) format('eot'),
+    url(../fonts/Vazir.woff) format('woff'),
+    url(../fonts/Vazir.ttf) format('truetype')
+}
+body { background: #222; font: 15px/1.7em Vazir, sans-serif; margin: 75px; }
 
 #login { width: 400px; position: absolute; left: 50%; margin-left: -200px; }
 

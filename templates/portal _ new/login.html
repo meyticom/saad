@@ -1,111 +1,69 @@
 {% load staticfiles %}
+
+
+
+
 <!Doctype html>
-<html lang="fa" style="font-family:BYekan;height: 100%">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{% static 'new/css/bootstrap.min.css' %}">
-    {#    <link rel="stylesheet" href="{% static 'new/css/bootstrap-rtl.css' %}">#}
-    <link rel="stylesheet" href="{% static 'new/css/style.css' %}">
-
-    <title>ورود</title>
+    <link rel="stylesheet" href="{% static 'new/css/login.css' %}" type="text/css"/>
+      {% block title %}
+        <title>صاد</title>
+    {% endblock %}
 </head>
-<body style="background-color: #2e3c4f; height: 100%">
+<body dir="rtl">
 
 
-<button data-toggle="modal" data-target="#enter"
-        style="font-family: BYekan;font-size:70px;color: #d3e6ff; height: 100%;width: 50%"
-        class=" btn btn-lg  btn-danger"><span
-        class="label label-info">ورود به عنوان کاربر</span></button>
+<div id="login">
+    <div id="login_panel">
+        <form action="/login/" method="post" class="form uniformForm">
+            {% csrf_token %}
+            <div class="field-group" style="margin-right: 30px">
 
-
-
-<button  style="font-family: BYekan;font-size:70px;color: #fc6985; height: 100%;width: 49%"
-        class=" btn btn-lg  btn-info"><span
-        class="label label-danger">ورود به عنوان مهمان</span></button>
-
-<div style="font-family: BYekan;" class="modal fade" id="enter" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel">
-    <div class="modal-dialog" >
-        <div style="background-color: #59aeed" class="modal-content">
-            <div class="modal-header">
-                <h4 style="text-align: center;color: #bce8f1" dir="rtl" class="modal-title" id="myModalLabel">فرم
-                    ورود</h4>
-            </div>
-            <div class="modal-body">
-
-                <div dir="rtl" class="widget">
-                       <div style="text-align: center" class="widget-content">
-
-                        <form class="form uniformForm" action="/login/" method="post">
-                            {% csrf_token %}
-
-                            <div class="field-group">
-                                <label style="color: #bce8f1" for="use">نام کاربری</label>
-                                <div class="field">
-                                    <input type="text" name="username" id="use" size="29"/>
-                                </div>
-                            </div> <!-- .field-group -->
-
-
-                            <div class="field-group">
-                                <label style="color: #bce8f1" for="pass">رمز عبور</label>
-                                <div class="field">
-                                    <input type="password" name="password" id="pass" size="29"/>
-                                </div>
-                            </div> <!-- .field-group -->
-                            <div style="margin-top: 10px" class="field-group">
-                             <div class="field">
-                         <button style="background-color: #008600" class="btn btn-info">تایید</button>
-<button type="button" class="btn btn-danger" data-dismiss="modal">خروج</button>
-                             </div>
-                        </div>
-                        </form>
-
-
-
-
-
-
-
-
-
-                    </div>
-
-
-
+                <div class="field">
+                    <label for="user">نام کاربری</label>
+                    <input type="text" name="username"  id="user" tabindex=1 placeholder="username"/>
                 </div>
 
+                <div class="field">
+                    <label for="password">رمز عبور </label>
+                    <input type="password" name="password"  id="password" tabindex=2 placeholder="password"/>
+                </div>
+            </div> <!-- .login_fields -->
+
+            <div style="background-color: #757575" class="login_actions">
+                <button type="submit" class="btn btn-primary" tabindex="3">ورود</button>
             </div>
+        </form>
+    </div> <!-- #login_panel -->
+</div> <!-- #login -->
 
-        </div>
-
-    </div>
-</div>
-
-        <script src="{% static 'new/js/jquery.min.js' %}"></script>
-        <script src="{% static 'new/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'new/js/handler.js' %}"></script>
-        <script src="{% static 'new/js/all.js' %}"></script>
-
-        <script>
-            $('#send').hide();
-        </script>
+<script src="{% static 'new/js/jquery.min.js' %}"></script>
+<script src="{% static 'new/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'new/js/handler.js' %}"></script>
+<script src="{% static 'new/js/all.js' %}"></script>
 
 
-        <script>
-            $(document).ready(function () {
-                $('[data-toggle="popover"]').popover();
-            });
-        </script>
-        <script>
-            $(document).ready(function () {
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-        </script>
+<script>
+    $('#send').hide();
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 </html>
 

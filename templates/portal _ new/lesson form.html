@@ -15,7 +15,7 @@
 
             <div class="grid-16">
 
-                <form class="form uniformForm" action="/add_lesson/" method="post">
+                <form class="form uniformForm validateForm" action="/add_lesson/" method="post">
                     {% csrf_token %}
 
                     <div class="widget">
@@ -31,7 +31,7 @@
                                 <label for="name"> نام کلاس</label>
                                 <div class="field">
                                     <input name="name" tabindex=1 type="text"  id="name" size="12"
-                                           class=""/>
+                                           class="validate[required]"/>
                                     {{ form.name.errors }}
                                 </div>
 
@@ -48,7 +48,7 @@
                             <div class="field-group">
                                 <label for="time">ساعت کلاس </label>
                                 <div class="field">
-                                    <input name="time" tabindex=4 type="text"  id="time" size="12"/>
+                                    <input class="validate[required]" name="time" tabindex=4 type="text"  id="time" size="12"/>
                                     {{ form.time.errors }}
                                 </div>
 
@@ -57,15 +57,15 @@
                                 <label for="date">روز کلاس </label>
 
                                 <div class="field">
-                                    <input name="date" tabindex=5 type="text"  id="date" size="12"/>
+                                    <input class="validate[required]" name="date" tabindex=5 type="text"  id="date" size="12"/>
                                     {{ form.date.errors }}
                                 </div>
 
                             </div> <!-- .field-group -->
-                               <div class="field-group">
+                               <div class="field-group validate[required]">
                                 <label for="teacher">نام مربی </label>
 
-                                <div class="field">
+                                <div tabindex="6" class="field ">
                                     {{ form.teacher }}
                                 </div>
                                 {{ form.teacher.errors }}

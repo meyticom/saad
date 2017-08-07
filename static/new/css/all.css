@@ -11,7 +11,7 @@ table, caption, tbody, tfoot, thead, tr, th, td
 font-weight: inherit;
 font-style: inherit;
 font-size: 100%;
-font-family: "B Yekan";
+font-family: Vazir;
 padding: 0;
 margin: 0;
 border: 0;
@@ -6399,6 +6399,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 	
 	#sidebar ul {
 		width: 100%;
+
 	}
 	
 	
@@ -6409,21 +6410,23 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 	#mainNav li.nav .subNav { width: 100%; margin-left: 0; padding-left: 0; left: 0; }
 	
-	#mainNav li.nav .subNav li { position: relative; margin-left: 35px; width: auto; }
-	
+	#mainNav li.nav .subNav li {  position: relative; margin-left: 35px; width: auto; }
+
 	
 	#mainNav li.nav [class^="icon-"], #mainNav li.nav [class*=" icon-"] {
 	background-image: url(../images/sprite/sprite-12-black.png);
 		width: 12px;
 		height: 12px;
 		top: 12px;
+
 	}
 	
 	#mainNav li.nav a {
 		width: 100%;
-		font-size: 12px;
+
 		padding-top: 8px;
 		padding-bottom: 8px;
+
 	}
 
 	#mainNav li.nav.active { background: none; }
@@ -6438,6 +6441,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 		padding-bottom: 5px;
 		
 		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+
 	}
 	
 	#mainNav .dropdown .dropdownArrow {

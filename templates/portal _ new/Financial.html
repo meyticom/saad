@@ -1,0 +1,151 @@
+{% extends 'Base.html' %}
+{% block title %}
+    <title>فرم مالی</title>
+{% endblock %}
+{% block main %}
+<div style="direction: rtl" id="content">
+
+    <div id="contentHeader">
+        <h1>فرم</h1>
+    </div> <!-- #contentHeader -->
+
+    <div class="container">
+
+
+        <div class="grid-16">
+
+            <form class="form uniformForm" action="/fi/" method="post">
+                {% csrf_token %}
+
+                <div class="widget">
+
+                    <div class="widget-header">
+                        <span class="icon-article"></span>
+                        <h3>فرم مالی</h3>
+                    </div> <!-- .widget-header -->
+
+                    <div class="widget-content">
+
+                        <div class="field-group">
+                            <label for="name"> نام </label>
+                            <div class="field">
+{#                                <input name="" tabindex=1 type="text" id="name" size="12"#}
+{#                                       class=""/>#}
+                                {{ form.last_name }}
+
+                            </div>
+
+                        </div> <!-- .field-group -->
+                        <div class="field-group">
+                            <label for="last">کل شهریه</label>
+                            <div class="field">
+                                <input name="kole_shahrie" tabindex=2 type="text" size="10" id="last"
+                                       class=""/>
+
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="daryafti">دریافتی</label>
+                            <div class="field">
+                                <input name="daryafti" tabindex=3 type="text" id="daryafti" size="7"/>
+
+                            </div>
+
+                        </div> <!-- .field-group -->
+                        <div class="field-group">
+                            <label for="noe">شهریه با احتساب تخفیف </label>
+
+                            <div class="field">
+                                <input name="shahrie_bt" tabindex=4 type="text" id="noe" size="9"/>
+
+                            </div>
+
+                        </div> <!-- .field-group -->
+                        <div class="field-group">
+                            <label for="teacher">باقی مانده </label>
+
+                            <div class="field">
+                                <input name="baghimande" tabindex=5 type="text" id="noe" size="5"/>
+
+                            </div>
+
+
+                        </div> <!-- .field-group -->
+
+
+                        <div class="field-group">
+                            <label for="teacher">شهریه با تخفیف </label>
+
+
+                            <div class="field">
+                                <input name="shahrie_bt" tabindex=6 type="text" id="noe" size="10"/>
+                            </div>
+
+
+                        </div> <!-- .field-group -->
+
+                    </div> <!-- .field-group -->
+                    <div class="field-group">
+                        <label>شهریه کل ( با احتساب نخفیف ) </label>
+
+                        <div class="field">
+                            <input name="" tabindex=7 type="text" id="noe" size="9"/>
+                        </div>
+
+                    </div> <!-- .field-group -->
+
+
+                    <div class="field-group">
+                        <label for="teacher">مبلغ تخفیف داده شده </label>
+
+                        <div class="field">
+                            <input name="m_takhfif" tabindex=8 type="text" id="noe" size="9"/>
+                        </div>
+
+
+                    </div> <!-- .field-group -->
+
+
+                    <div class="field-group">
+                        <button tabindex=9 class="btn-green btn-large"> ثبت</button>
+
+                    </div>
+
+                </div>
+
+
+            </form>
+
+
+        </div> <!-- .grid -->
+
+        <div style="direction: rtl" class="grid-7">
+
+
+            <div class="box">
+                <h3>مواردی که باید بدانید</h3>
+                <ul>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                </ul>
+
+                <ul>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+                    <li>آموزشگاه صاد هدفی جز موفقیت و جلب رضایت شما ندارد</li>
+
+                </ul>
+            </div> <!-- .box -->
+
+        </div> <!-- .grid -->
+
+    </div> <!-- .container -->
+
+
+</div> <!-- #content -->
+ {% endblock %}

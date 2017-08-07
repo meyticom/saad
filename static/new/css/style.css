@@ -1,11 +1,12 @@
+
 @font-face {
-    font-family: BYekan;
-    src: url(../fonts/BYekan.eot ) format('eot'),
-    url(../fonts/BYekan.woff) format('woff'),
-    url(../fonts/BYekan.ttf) format('truetype')
+    font-family: Vazir;
+    src: url(../fonts/Vazir.eot ) format('eot'),
+    url(../fonts/Vazir.woff) format('woff'),
+    url(../fonts/Vazir.ttf) format('truetype')
 }
 body{
-    font-family: "B Yekan "!important;
+    font-family: Vazir !important;
 }
 #contentHeader h1 {
     font-size: 22px;

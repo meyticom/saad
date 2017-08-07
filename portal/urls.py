@@ -1,3 +1,4 @@
+
 from django.conf.urls import url
 from django.conf.urls.static import static
 from django.conf import settings
@@ -16,9 +17,14 @@ urlpatterns = [
                   url(r'^lesson/(?P<pk>\d+)/$', views.lesson_edit, name='edit_lesson'),
                   url(r'^lesson/(?P<pk>\d+)/del/$', views.del_lesson, name='del_lesson'),
                   url(r'^add_lesson/$', views.add_lesson, name='add_lesson'),
+                  url(r'^operator/$', views.operator, name='operator'),
+                  url(r'^main/$', views.main, name='main'),
+                  url(r'^$', views.main, name='main'),
                   url(r'^setting/$', views.setting, name='setting'),
                   url(r'^login/$', views.user_login, name='login'),
                   url(r'^logout/$', views.user_logout, name='logout'),
+                  url(r'^fi/$', views.financial, name='fi'),
+                  url(r'^operator/$', views.operator, name='operator'),
                   #url(r'^', views.add_student, name='add_student'),# amele baz nashodan aksha
 
               ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

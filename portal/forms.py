@@ -34,6 +34,8 @@ class studentfrom(forms.ModelForm):
                       ('16', 'پیش دبستانی'),('17','عدم آغاز تحصیل'),)
     CHOICES_father_ejuction=(('1','دکتری'),('2','فوق لیسانس'),('3','لیسانس'),('4','فوق دیپلم'),('5','دیپلم'),)
     CHOICES_mother_ejuction=(('1','دکتری'),('2','فوق لیسانس'),('3','لیسانس'),('4','فوق دیپلم'),('5','دیپلم'),('6','زیر دیپلم'))
+
+    CHOICES = (('Option 1', 'Option 1'), ('Option 2', 'Option 2'),)
     code = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'style':'background-color:#91bae8','size': '12'}))
     imgfile = forms.FileField(required=False,)#widget=forms.FileInput(attrs={'class':'img-thumbnail'})
     first_name = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'size':'16'}))
@@ -42,7 +44,8 @@ class studentfrom(forms.ModelForm):
     national_code = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'size':'15'}))
     mail = forms.EmailField(required=False,widget=forms.TextInput(attrs={'size': '24'}))
     born = forms.CharField(max_length=50,widget=forms.TextInput(attrs={'size':'16'}))
-    end_ejuction = forms.ChoiceField(widget=forms.Select,choices=CHOICES_ejuction)
+    #end_ejuction = forms.ChoiceField(widget=forms.Select,choices=CHOICES_ejuction)
+    end_ejuction = forms.ChoiceField(choices=CHOICES) #choices=CHOICES_ejuction
     address = forms.CharField(max_length=1000,widget=forms.Textarea(attrs={'rows':'3'}))
     phone = forms.CharField(max_length=50,required=False,widget=forms.TextInput(attrs={'size':'15'}))
     mobile = forms.CharField(max_length=50,required=False,widget=forms.TextInput(attrs={'size':'15'}))
@@ -74,13 +77,9 @@ class studentfrom(forms.ModelForm):
                  'mental_illness_medicine','detail')
 
 class financialform(forms.ModelForm):
-    last_name = forms.CharField(max_length=50)
-    mablaghe_kol = forms.CharField(max_length=50)
-    takhfif = forms.CharField(max_length=50)
-    pardakht_avaliye = forms.CharField(max_length=50)
     class Meta:
         model = Financial
-        fields=('last_name','mablaghe_kol','takhfif','pardakht_avaliye')
+        fields='__all__'
 
 class settingform(forms.ModelForm):
     class Meta:
